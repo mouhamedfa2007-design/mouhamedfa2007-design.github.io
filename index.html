@@ -2,1511 +2,2856 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Timtimol - Habits & Accessoires Sénégalais</title>
-    <link rel="icon" type="image/png" href="timtimol.jpeg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0">
+    <meta name="description" content="Timtimol - Boutique d'habits et accessoires sénégalais premium. Créations sur mesure par Awa Ndiaye. Élégance africaine moderne.">
+    <meta name="keywords" content="mode sénégalaise, boubou, vêtements africains, création sur mesure, accessoires, Dakar, Sénégal">
+    <meta name="author" content="Awa Ndiaye">
+    <meta property="og:title" content="Timtimol - Élégance Sénégalaise">
+    <meta property="og:description" content="Collection exclusive d'habits et accessoires sénégalais stylés">
+    <meta property="og:image" content="https://timtimol.com/timtimol-og.jpg">
+    <meta property="og:url" content="https://timtimol.com">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <title>Timtimol - Habits & Accessoires Sénégalais Premium | Créations Sur Mesure</title>
+    
+    <link rel="icon" type="image/png" href="timtimol.png" sizes="32x32">
+    <link rel="apple-touch-icon" href="timtimol.png">
+    
+    <!-- Fonts optimisées -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Lazy Loading CSS -->
     <style>
-        /* ========== RESET & BASE ========== */
+        /* ========== CRITICAL CSS (Chargement immédiat) ========== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        :root {
-            --primary: #9C4A1A;
-            --secondary: #E67E22;
-            --accent: #F1C40F;
-            --light: #FEF9F3;
-            --dark: #7E3C13;
-            --text: #2C3E50;
-            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
         }
         
         html {
-            overflow-x: hidden;
             scroll-behavior: smooth;
+            overflow-x: hidden;
         }
         
         body {
-            background-color: var(--light);
-            color: var(--text);
-            line-height: 1.7;
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
             overflow-x: hidden;
-            width: 100%;
-            max-width: 100vw;
+            background: #fff;
         }
         
-        img, video {
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header minimal pour FCP */
+        header {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+        
+        /* ========== LAZY LOAD IMAGES ========== */
+        img {
             max-width: 100%;
             height: auto;
             display: block;
         }
         
+        .lazy-img {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .lazy-img.loaded {
+            opacity: 1;
+        }
+        
+        .blur-up {
+            filter: blur(10px);
+            transition: filter 0.3s ease;
+        }
+        
+        .blur-up.lazyloaded {
+            filter: blur(0);
+        }
+    </style>
+    
+    <!-- Deferred CSS -->
+    <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="style.css"></noscript>
+    
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Timtimol",
+      "description": "Boutique d'habits et accessoires sénégalais premium",
+      "url": "https://timtimol.com",
+      "logo": "https://timtimol.com/timtimol.png",
+      "image": "https://timtimol.com/timtimol-og.jpg",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Golf Sud Station 10, Derrière Hôpital Dalal Diam",
+        "addressLocality": "Guédiawaye",
+        "addressRegion": "Dakar",
+        "addressCountry": "SN"
+      },
+      "telephone": "+221775344883",
+      "openingHours": "Mo-Su 08:00-22:00",
+      "priceRange": "$$",
+      "sameAs": [
+        "https://instagram.com/timtimol_awa_",
+        "https://tiktok.com/@timtimol_awa"
+      ]
+    }
+    </script>
+    
+    <!-- PWA Manifest (optionnel) -->
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <!-- Skip to main content (Accessibilité) -->
+    <a href="#main-content" class="skip-link" aria-label="Aller au contenu principal">Aller au contenu</a>
+    
+    <!-- Header avec navigation avancée -->
+    <header role="banner">
+        <div class="container">
+            <div class="header-grid">
+                <!-- Logo avec micro-interaction -->
+                <a href="#hero" class="logo-link" aria-label="Timtimol - Retour à l'accueil">
+                    <div class="logo-wrapper">
+                        <img src="timtimol.png" alt="Logo Timtimol" width="60" height="60" loading="eager" class="logo-img">
+                        <div class="logo-text">
+                            <h1 class="logo-title">TIMTIMOL</h1>
+                            <span class="logo-subtitle">Élégance Sénégalaise</span>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- Navigation principale -->
+                <nav class="main-nav" role="navigation" aria-label="Navigation principale">
+                    <ul class="nav-list">
+                        <li><a href="#hero" class="nav-link active" data-nav="home">Accueil</a></li>
+                        <li><a href="#about" class="nav-link" data-nav="about">À Propos</a></li>
+                        <li><a href="#products" class="nav-link" data-nav="products">Collections</a></li>
+                        <li><a href="#gallery" class="nav-link" data-nav="gallery">Galerie</a></li>
+                        <li><a href="#services" class="nav-link" data-nav="services">Services</a></li>
+                        <li><a href="#contact" class="nav-link" data-nav="contact">Contact</a></li>
+                    </ul>
+                    
+                    <!-- Boutons action -->
+                    <div class="nav-actions">
+                        <button class="btn-cta" onclick="scrollToContact()">
+                            <i class="fas fa-shopping-bag"></i>
+                            <span>Commander</span>
+                        </button>
+                        <button class="theme-toggle" aria-label="Changer le thème">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </div>
+                </nav>
+                
+                <!-- Menu mobile -->
+                <button class="mobile-menu-btn" aria-label="Ouvrir le menu" aria-expanded="false">
+                    <span class="menu-icon"></span>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Navigation Drawer -->
+        <div class="mobile-nav-drawer">
+            <div class="drawer-content">
+                <div class="drawer-header">
+                    <img src="timtimol.png" alt="Timtimol" width="50" height="50">
+                    <button class="drawer-close" aria-label="Fermer le menu">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <nav class="drawer-nav">
+                    <a href="#hero" class="drawer-link">Accueil</a>
+                    <a href="#about" class="drawer-link">À Propos</a>
+                    <a href="#products" class="drawer-link">Collections</a>
+                    <a href="#gallery" class="drawer-link">Galerie</a>
+                    <a href="#services" class="drawer-link">Services</a>
+                    <a href="#contact" class="drawer-link">Contact</a>
+                </nav>
+                <div class="drawer-footer">
+                    <a href="tel:+221775344883" class="phone-link">
+                        <i class="fas fa-phone"></i>
+                        +221 77 534 48 83
+                    </a>
+                    <div class="social-drawer">
+                        <a href="https://instagram.com/timtimol_awa_" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://tiktok.com/@timtimol_awa" aria-label="TikTok">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section avec performance -->
+    <section id="hero" class="hero-section" role="main" aria-labelledby="main-title">
+        <div class="hero-background">
+            <picture>
+                <source srcset="hero-small.webp 640w, hero-medium.webp 1024w, hero-large.webp 1920w" type="image/webp">
+                <source srcset="hero-small.jpg 640w, hero-medium.jpg 1024w, hero-large.jpg 1920w" type="image/jpeg">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1920 1080'%3E%3C/svg%3E" 
+                     data-src="hero-large.jpg" 
+                     alt="Collection Timtimol" 
+                     class="lazy-img blur-up"
+                     loading="eager">
+            </picture>
+            <div class="hero-overlay"></div>
+        </div>
+        
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">Nouvelle Collection 2024</div>
+                <h1 id="main-title" class="hero-title">
+                    <span class="title-line">Timtimol</span>
+                    <span class="title-line accent">Élégance Sénégalaise</span>
+                </h1>
+                <p class="hero-description">
+                    Découvrez une collection exclusive d'habits et accessoires sénégalais stylés, 
+                    créés avec passion par Awa Ndiaye. Commandes sur mesure disponibles.
+                </p>
+                
+                <div class="hero-actions">
+                    <button class="btn-hero-primary" onclick="scrollToProducts()">
+                        <span>Découvrir la Collection</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                    <button class="btn-hero-secondary" onclick="openWhatsApp()">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>Commander via WhatsApp</span>
+                    </button>
+                </div>
+                
+                <!-- Stats sociales -->
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="500">0</span>
+                        <span class="stat-label">Créations</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="120">0</span>
+                        <span class="stat-label">Clients satisfaits</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="50">0</span>
+                        <span class="stat-label">Modèles uniques</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll indicator -->
+        <button class="scroll-indicator" aria-label="Défiler vers le bas" onclick="scrollToAbout()">
+            <i class="fas fa-chevron-down"></i>
+        </button>
+    </section>
+
+    <main id="main-content">
+        <!-- About Section avec animation -->
+        <section id="about" class="section about-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">Notre Histoire</span>
+                    <h2 class="section-title">L'Artisanat au Service de l'Élégance</h2>
+                    <p class="section-subtitle">Depuis 2020, nous redéfinissons la mode sénégalaise</p>
+                </div>
+                
+                <div class="about-grid">
+                    <div class="about-image">
+                        <div class="image-frame">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 800'%3E%3C/svg%3E" 
+                                 data-src="awa-portrait.jpg" 
+                                 alt="Awa Ndiaye - Créatrice de Timtimol" 
+                                 class="lazy-img"
+                                 loading="lazy">
+                            <div class="image-badge">
+                                <i class="fas fa-award"></i>
+                                <span>Artisan certifié</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="about-content">
+                        <div class="about-intro">
+                            <h3>Bonjour, je suis Awa</h3>
+                            <p class="intro-text">
+                                Passionnée par les textiles africains depuis mon enfance, j'ai créé Timtimol 
+                                pour partager ma vision de la mode sénégalaise contemporaine.
+                            </p>
+                        </div>
+                        
+                        <div class="features-grid">
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-hand-sparkles"></i>
+                                </div>
+                                <h4>Fait Main</h4>
+                                <p>Chaque pièce est confectionnée avec soin par nos artisans locaux</p>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-leaf"></i>
+                                </div>
+                                <h4>Matériaux Durables</h4>
+                                <p>Tissus de qualité supérieure, respectueux de l'environnement</p>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-ruler-combined"></i>
+                                </div>
+                                <h4>Sur Mesure</h4>
+                                <p>Adapté à vos mesures pour un rendu parfait</p>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-shipping-fast"></i>
+                                </div>
+                                <h4>Livraison Rapide</h4>
+                                <p>Partout au Sénégal en 48-72h</p>
+                            </div>
+                        </div>
+                        
+                        <blockquote class="about-quote">
+                            <p>"La beauté africaine s'exprime à travers chaque fil, chaque motif, chaque création."</p>
+                            <cite>— Awa Ndiaye, Fondatrice</cite>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Section avec filtres -->
+        <section id="products" class="section products-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">Nos Collections</span>
+                    <h2 class="section-title">Pièces Exclusives</h2>
+                    
+                    <!-- Filtres -->
+                    <div class="category-filters">
+                        <button class="filter-btn active" data-filter="all">Tout voir</button>
+                        <button class="filter-btn" data-filter="boubou">Boubou</button>
+                        <button class="filter-btn" data-filter="robes">Robes</button>
+                        <button class="filter-btn" data-filter="accessoires">Accessoires</button>
+                        <button class="filter-btn" data-filter="homme">Homme</button>
+                        <button class="filter-btn" data-filter="femme">Femme</button>
+                    </div>
+                </div>
+                
+                <!-- Grid de produits -->
+                <div class="products-grid">
+                    <!-- Produit 1 -->
+                    <article class="product-card" data-category="boubou femme">
+                        <div class="product-image">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 500'%3E%3C/svg%3E" 
+                                 data-src="boubou-premium.jpg" 
+                                 alt="Boubou Premium avec broderies dorées" 
+                                 class="lazy-img"
+                                 loading="lazy">
+                            <button class="quick-view" aria-label="Voir les détails">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                            <div class="product-badge bestseller">Best-seller</div>
+                        </div>
+                        
+                        <div class="product-info">
+                            <div class="product-meta">
+                                <span class="product-category">Boubou</span>
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.9 (24)</span>
+                                </div>
+                            </div>
+                            
+                            <h3 class="product-title">Boubou "Élégance Royale"</h3>
+                            <p class="product-description">
+                                Broderies dorées main sur tissu wax premium. Coupe ajustée pour une silhouette sublime.
+                            </p>
+                            
+                            <div class="product-footer">
+                                <div class="product-price">
+                                    <span class="price">45.000 FCFA</span>
+                                    <span class="price-old">55.000 FCFA</span>
+                                </div>
+                                <button class="btn-add-cart" aria-label="Ajouter au panier">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <!-- Produit 2 -->
+                    <article class="product-card" data-category="accessoires">
+                        <div class="product-image">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 500'%3E%3C/svg%3E" 
+                                 data-src="accessoires-collection.jpg" 
+                                 alt="Collection accessoires en perles" 
+                                 class="lazy-img"
+                                 loading="lazy">
+                            <button class="quick-view" aria-label="Voir les détails">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                        
+                        <div class="product-info">
+                            <div class="product-meta">
+                                <span class="product-category">Accessoires</span>
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.8 (18)</span>
+                                </div>
+                            </div>
+                            
+                            <h3 class="product-title">Collection "Perles d'Afrique"</h3>
+                            <p class="product-description">
+                                Bijoux artisanaux en perles recyclées. Ensemble collier, boucles et bracelet.
+                            </p>
+                            
+                            <div class="product-footer">
+                                <div class="product-price">
+                                    <span class="price">28.000 FCFA</span>
+                                </div>
+                                <button class="btn-add-cart" aria-label="Ajouter au panier">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <!-- Ajoutez plus de produits ici -->
+                </div>
+                
+                <!-- CTA -->
+                <div class="products-cta">
+                    <p>Vous ne trouvez pas votre bonheur ?</p>
+                    <button class="btn-custom" onclick="scrollToContact()">
+                        <i class="fas fa-palette"></i>
+                        <span>Création sur mesure</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery avec Lightbox Pro -->
+        <section id="gallery" class="section gallery-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">Notre Univers</span>
+                    <h2 class="section-title">Galerie Inspirante</h2>
+                    <p class="section-subtitle">Découvrez nos créations en situation réelle</p>
+                </div>
+                
+                <div class="gallery-grid" id="galleryGrid">
+                    <!-- Votre galerie ici avec lazy loading -->
+                    <div class="gallery-item" data-index="0" data-category="collections">
+                        <div class="gallery-card">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3C/svg%3E" 
+                                 data-src="galerie-1.jpeg" 
+                                 alt="Collection Élégance - Défilé Dakar" 
+                                 class="lazy-img blur-up"
+                                 loading="lazy">
+                            <div class="gallery-overlay">
+                                <div class="gallery-info">
+                                    <h3>Collection Élégance</h3>
+                                    <p>Défilé Dakar Fashion Week 2023</p>
+                                    <button class="gallery-zoom" aria-label="Agrandir l'image">
+                                        <i class="fas fa-search-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Ajoutez vos autres images -->
+                    <div class="gallery-item" data-index="5" data-category="collections">
+                        <div class="gallery-card">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3C/svg%3E" 
+                                 data-src="galerie-6.jpeg" 
+                                 alt="Collections Saisonnières - Nouveautés Printemps" 
+                                 class="lazy-img blur-up"
+                                 loading="lazy">
+                            <div class="gallery-overlay">
+                                <div class="gallery-info">
+                                    <h3>Collections Saisonnières</h3>
+                                    <p>Nouveautés Printemps 2024</p>
+                                    <button class="gallery-zoom" aria-label="Agrandir l'image">
+                                        <i class="fas fa-search-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section avancée -->
+        <section id="contact" class="section contact-section">
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <div class="contact-header">
+                            <h2 class="contact-title">Prendre contact</h2>
+                            <p class="contact-subtitle">Discutons de votre projet</p>
+                        </div>
+                        
+                        <!-- Infos de contact -->
+                        <div class="contact-methods">
+                            <a href="tel:+221775344883" class="contact-method">
+                                <div class="method-icon">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div class="method-content">
+                                    <span class="method-label">Téléphone</span>
+                                    <span class="method-value">+221 77 534 48 83</span>
+                                    <span class="method-note">Appel direct</span>
+                                </div>
+                            </a>
+                            
+                            <button onclick="openWhatsApp()" class="contact-method">
+                                <div class="method-icon">
+                                    <i class="fab fa-whatsapp"></i>
+                                </div>
+                                <div class="method-content">
+                                    <span class="method-label">WhatsApp</span>
+                                    <span class="method-value">Message instantané</span>
+                                    <span class="method-note">Réponse sous 1h</span>
+                                </div>
+                            </button>
+                            
+                            <div class="contact-method">
+                                <div class="method-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="method-content">
+                                    <span class="method-label">Atelier</span>
+                                    <span class="method-value">Golf Sud, Guédiawaye</span>
+                                    <span class="method-note">Sur rendez-vous</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Horaires -->
+                        <div class="business-hours">
+                            <h3>Horaires d'ouverture</h3>
+                            <div class="hours-grid">
+                                <div class="day">Lun - Ven</div>
+                                <div class="time">8h - 20h</div>
+                                <div class="day">Samedi</div>
+                                <div class="time">9h - 18h</div>
+                                <div class="day">Dimanche</div>
+                                <div class="time">10h - 16h</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Social -->
+                        <div class="contact-social">
+                            <h3>Suivez notre actualité</h3>
+                            <div class="social-buttons">
+                                <a href="https://instagram.com/timtimol_awa_" class="social-btn instagram" aria-label="Instagram">
+                                    <i class="fab fa-instagram"></i>
+                                    <span>@timtimol_awa_</span>
+                                </a>
+                                <a href="https://tiktok.com/@timtimol_awa" class="social-btn tiktok" aria-label="TikTok">
+                                    <i class="fab fa-tiktok"></i>
+                                    <span>@timtimol_awa</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Formulaire -->
+                    <div class="contact-form-wrapper">
+                        <form id="advancedContactForm" class="contact-form" novalidate>
+                            <h3>Formulaire de contact</h3>
+                            <p>Remplissez ce formulaire pour toute demande</p>
+                            
+                            <div class="form-group">
+                                <label for="fullName">Nom complet *</label>
+                                <input type="text" id="fullName" name="fullName" required 
+                                       placeholder="Ex: Mariama Diop">
+                                <div class="form-error"></div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="email">Email *</label>
+                                    <input type="email" id="email" name="email" required 
+                                           placeholder="votre@email.com">
+                                    <div class="form-error"></div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="phone">Téléphone *</label>
+                                    <input type="tel" id="phone" name="phone" required 
+                                           placeholder="+221 77 123 45 67">
+                                    <div class="form-error"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="serviceType">Type de demande *</label>
+                                <select id="serviceType" name="serviceType" required>
+                                    <option value="">Sélectionnez</option>
+                                    <option value="commande">Commande standard</option>
+                                    <option value="sur-mesure">Création sur mesure</option>
+                                    <option value="devis">Demande de devis</option>
+                                    <option value="question">Question générale</option>
+                                </select>
+                                <div class="form-error"></div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Message *</label>
+                                <textarea id="message" name="message" rows="5" required 
+                                          placeholder="Décrivez votre projet en détail..."></textarea>
+                                <div class="form-error"></div>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="submit" class="btn-submit" id="submitBtn">
+                                    <span class="btn-text">Envoyer la demande</span>
+                                    <div class="btn-loader"></div>
+                                </button>
+                                <p class="form-note">
+                                    <i class="fas fa-shield-alt"></i>
+                                    Vos données sont sécurisées
+                                </p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Floating WhatsApp Button -->
+        <a href="https://wa.me/221775344883" class="float-whatsapp" aria-label="Contact WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+            <span class="float-text">Discuter</span>
+        </a>
+        
+        <!-- Back to Top -->
+        <button class="back-to-top" aria-label="Retour en haut">
+            <i class="fas fa-chevron-up"></i>
+        </button>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Column 1 -->
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <img src="timtimol.png" alt="Timtimol" width="50" height="50">
+                        <h3>TIMTIMOL</h3>
+                    </div>
+                    <p class="footer-description">
+                        Boutique d'excellence dédiée à la mode sénégalaise contemporaine. 
+                        Créations uniques, sur mesure et authentiques.
+                    </p>
+                    <div class="footer-newsletter">
+                        <p>Inscrivez-vous à notre newsletter</p>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="Votre email" required>
+                            <button type="submit" aria-label="S'abonner">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                
+                <!-- Column 2 -->
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="#hero">Accueil</a></li>
+                        <li><a href="#about">Notre Histoire</a></li>
+                        <li><a href="#products">Collections</a></li>
+                        <li><a href="#gallery">Galerie</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3 -->
+                <div class="footer-col">
+                    <h4>Informations</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" onclick="showModal('livraison')">Livraison & Retours</a></li>
+                        <li><a href="#" onclick="showModal('paiement')">Modes de Paiement</a></li>
+                        <li><a href="#" onclick="showModal('tailles')">Guide des Tailles</a></li>
+                        <li><a href="#" onclick="showModal('faq')">FAQ</a></li>
+                        <li><a href="#" onclick="showModal('confidentialite')">Confidentialité</a></li>
+                        <li><a href="#" onclick="showModal('cgv')">CGV</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 4 -->
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <address class="footer-contact">
+                        <p><i class="fas fa-map-marker-alt"></i> Golf Sud, Guédiawaye - Dakar</p>
+                        <p><i class="fas fa-phone"></i> +221 77 534 48 83</p>
+                        <p><i class="fas fa-envelope"></i> contact@timtimol.com</p>
+                    </address>
+                    
+                    <div class="footer-social">
+                        <a href="https://instagram.com/timtimol_awa_" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://tiktok.com/@timtimol_awa" aria-label="TikTok">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                        <a href="https://facebook.com" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://pinterest.com" aria-label="Pinterest">
+                            <i class="fab fa-pinterest-p"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="payment-methods">
+                        <span>Paiements acceptés:</span>
+                        <div class="payment-icons">
+                            <i class="fab fa-cc-visa" title="Visa"></i>
+                            <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                            <i class="fab fa-cc-paypal" title="PayPal"></i>
+                            <span>Mobile Money</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear"></span> Timtimol. Tous droits réservés.</p>
+                <p>Site créé avec ❤️ à Dakar, Sénégal</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-label="Visionneuse d'image">
+        <div class="lightbox-content">
+            <button class="lightbox-close" aria-label="Fermer">
+                <i class="fas fa-times"></i>
+            </button>
+            <button class="lightbox-nav prev" aria-label="Image précédente">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="lightbox-nav next" aria-label="Image suivante">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            <div class="lightbox-image-container">
+                <img id="lightbox-img" src="" alt="">
+            </div>
+            <div class="lightbox-caption">
+                <h3 id="lightbox-title"></h3>
+                <p id="lightbox-description"></p>
+                <div class="lightbox-counter">
+                    <span id="current-index">1</span> / <span id="total-images">6</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div class="loading-spinner" id="loadingSpinner">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- CSS complet dans un seul fichier -->
+    <style>
+        /* ========== VARIABLES CSS ========== */
+        :root {
+            /* Couleurs */
+            --primary-color: #9C4A1A;
+            --primary-dark: #7E3C13;
+            --secondary-color: #E67E22;
+            --accent-color: #F1C40F;
+            --light-color: #FEF9F3;
+            --dark-color: #2C3E50;
+            --text-color: #333;
+            --text-light: #666;
+            --border-color: #E8E8E8;
+            --success-color: #27AE60;
+            --error-color: #E74C3C;
+            
+            /* Typographie */
+            --font-main: 'Poppins', sans-serif;
+            --font-heading: 'Playfair Display', serif;
+            
+            /* Espacements */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 2rem;
+            --space-xl: 3rem;
+            
+            /* Ombres */
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 16px rgba(0,0,0,0.1);
+            --shadow-lg: 0 8px 32px rgba(0,0,0,0.12);
+            --shadow-xl: 0 16px 48px rgba(0,0,0,0.15);
+            
+            /* Bordures */
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --radius-full: 50%;
+            
+            /* Transitions */
+            --transition-fast: 0.2s ease;
+            --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 0.5s ease;
+        }
+
+        /* ========== RESET & BASE ========== */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-main);
+            line-height: 1.6;
+            color: var(--text-color);
+            background: var(--light-color);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: var(--space-sm);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
         .container {
             width: 100%;
-            max-width: 1200px;
+            max-width: 1280px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 var(--space-md);
         }
-        
+
+        .section {
+            padding: var(--space-xl) 0;
+        }
+
+        /* ========== ACCESSIBILITY ========== */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--primary-color);
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            z-index: 9999;
+            border-radius: var(--radius-sm);
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
         /* ========== HEADER ========== */
         header {
-            background-color: rgba(255, 255, 255, 0.98);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-            position: sticky;
+            position: fixed;
             top: 0;
-            z-index: 1000;
-            backdrop-filter: blur(10px);
-            transition: var(--transition);
+            left: 0;
             width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-normal);
         }
-        
-        .header-content {
+
+        .header-scrolled {
+            padding: 0.5rem 0;
+            box-shadow: var(--shadow-md);
+        }
+
+        .header-grid {
             display: flex;
+            align-items: center;
             justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
-            position: relative;
+            padding: 1rem 0;
         }
-        
-        .logo-container {
+
+        .logo-link {
             display: flex;
             align-items: center;
-            gap: 15px;
             text-decoration: none;
-            flex-shrink: 0;
+            color: inherit;
         }
-        
+
+        .logo-wrapper {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
         .logo-img {
-            height: 55px;
-            width: auto;
-            filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.1));
-            transition: var(--transition);
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
         }
-        
+
         .logo-text {
             display: flex;
             flex-direction: column;
         }
-        
-        .logo-main {
-            font-size: 22px;
+
+        .logo-title {
+            font-size: 1.8rem;
             font-weight: 800;
-            color: var(--primary);
-            letter-spacing: 0.5px;
+            color: var(--primary-color);
+            margin: 0;
             line-height: 1;
         }
-        
-        .logo-sub {
-            font-size: 12px;
-            color: var(--secondary);
+
+        .logo-subtitle {
+            font-size: 0.8rem;
+            color: var(--secondary-color);
             font-weight: 500;
-            margin-top: 3px;
-            letter-spacing: 0.3px;
-            white-space: nowrap;
+            letter-spacing: 0.5px;
         }
-        
-        nav ul {
+
+        /* ========== NAVIGATION ========== */
+        .main-nav {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xl);
+        }
+
+        .nav-list {
             display: flex;
             list-style: none;
-            gap: 25px;
+            gap: var(--space-lg);
+            margin: 0;
+            padding: 0;
         }
-        
-        nav a {
+
+        .nav-link {
             text-decoration: none;
-            color: var(--text);
-            font-weight: 600;
-            font-size: 15px;
-            transition: var(--transition);
+            color: var(--dark-color);
+            font-weight: 500;
+            padding: 0.5rem 0;
             position: relative;
-            padding: 5px 0;
-            white-space: nowrap;
+            transition: color var(--transition-fast);
         }
-        
-        nav a:hover {
-            color: var(--primary);
-        }
-        
-        nav a::after {
+
+        .nav-link::after {
             content: '';
             position: absolute;
-            width: 0;
-            height: 3px;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            left: 0;
             bottom: 0;
-            transition: width 0.4s ease;
-            border-radius: 2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width var(--transition-normal);
         }
-        
-        nav a:hover::after {
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
             width: 100%;
         }
-        
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary-color);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .btn-cta {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: var(--radius-full);
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all var(--transition-normal);
+        }
+
+        .btn-cta:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* ========== MOBILE MENU ========== */
         .mobile-menu-btn {
             display: none;
             background: none;
             border: none;
-            font-size: 24px;
-            color: var(--primary);
+            width: 30px;
+            height: 30px;
             cursor: pointer;
-            padding: 8px;
-            border-radius: 5px;
-            transition: var(--transition);
-            z-index: 1001;
-        }
-        
-        /* ========== HERO ========== */
-        .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.7)), url('image-hero.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            color: white;
-            text-align: center;
-            padding: 120px 20px;
-            margin-bottom: 60px;
             position: relative;
+            z-index: 1002;
+        }
+
+        .menu-icon {
+            position: relative;
+            display: block;
             width: 100%;
+            height: 2px;
+            background: var(--primary-color);
+            transition: all var(--transition-normal);
         }
-        
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .hero h1 {
-            font-size: 42px;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
-            line-height: 1.3;
-            font-weight: 800;
-        }
-        
-        .hero p {
-            font-size: 18px;
-            max-width: 700px;
-            margin: 0 auto 30px;
-            opacity: 0.9;
-        }
-        
-        .btn {
-            display: inline-block;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            color: white;
-            padding: 14px 32px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: var(--transition);
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(156, 74, 26, 0.3);
-            font-size: 15px;
-            position: relative;
-            overflow: hidden;
-            margin: 5px;
-        }
-        
-        .btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(156, 74, 26, 0.4);
-        }
-        
-        .btn-secondary {
-            background: transparent;
-            border: 2px solid var(--accent);
-            color: var(--accent);
-            box-shadow: 0 5px 15px rgba(241, 196, 15, 0.2);
-        }
-        
-        .btn-secondary:hover {
-            background: var(--accent);
-            color: var(--dark);
-        }
-        
-        /* ========== SECTIONS ========== */
-        .section {
-            padding: 80px 0;
-            width: 100%;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-        
-        .section-title h2 {
-            font-size: 36px;
-            color: var(--primary);
-            display: inline-block;
-            padding-bottom: 15px;
-            position: relative;
-            font-weight: 700;
-        }
-        
-        .section-title h2::after {
+
+        .menu-icon::before,
+        .menu-icon::after {
             content: '';
             position: absolute;
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            border-radius: 2px;
+            width: 100%;
+            height: 2px;
+            background: var(--primary-color);
+            transition: all var(--transition-normal);
         }
-        
-        /* ========== ABOUT ========== */
-        .about-content {
+
+        .menu-icon::before {
+            top: -8px;
+        }
+
+        .menu-icon::after {
+            bottom: -8px;
+        }
+
+        .mobile-menu-btn[aria-expanded="true"] .menu-icon {
+            background: transparent;
+        }
+
+        .mobile-menu-btn[aria-expanded="true"] .menu-icon::before {
+            transform: rotate(45deg);
+            top: 0;
+        }
+
+        .mobile-menu-btn[aria-expanded="true"] .menu-icon::after {
+            transform: rotate(-45deg);
+            bottom: 0;
+        }
+
+        .mobile-nav-drawer {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            max-width: 400px;
+            height: 100vh;
+            background: white;
+            z-index: 1001;
+            transition: right var(--transition-normal);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .mobile-nav-drawer.open {
+            right: 0;
+        }
+
+        .drawer-content {
+            padding: 2rem;
+            height: 100%;
             display: flex;
             flex-direction: column;
-            gap: 40px;
         }
-        
-        .about-img {
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            position: relative;
-        }
-        
-        .about-img img {
-            width: 100%;
-            transition: transform 0.8s ease;
-        }
-        
-        .about-text h3 {
-            font-size: 28px;
-            color: var(--dark);
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
-        
-        .about-text p {
-            margin-bottom: 20px;
-            font-size: 16px;
-            color: #555;
-        }
-        
-        .signature {
-            font-style: italic;
-            color: var(--secondary);
-            font-weight: 600;
-            font-size: 17px;
-            margin-top: 15px;
-        }
-        
-        /* ========== PRODUCTS ========== */
-        .products {
-            background-color: #F9F4EC;
-        }
-        
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 25px;
-        }
-        
-        .product-card {
-            background-color: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-        
-        .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
-        }
-        
-        .product-img {
-            height: 220px;
-            overflow: hidden;
-        }
-        
-        .product-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.8s ease;
-        }
-        
-        .product-card:hover .product-img img {
-            transform: scale(1.1);
-        }
-        
-        .product-info {
-            padding: 20px;
-        }
-        
-        .product-info h3 {
-            font-size: 20px;
-            margin-bottom: 10px;
-            color: var(--dark);
-        }
-        
-        .product-info p {
-            color: #666;
-            margin-bottom: 15px;
-            font-size: 14.5px;
-        }
-        
-        .product-price {
-            font-weight: 800;
-            color: var(--primary);
-            font-size: 18px;
+
+        .drawer-header {
             display: flex;
-            align-items: center;
             justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
         }
-        
-        /* ========== GALLERY ========== */
-        .gallery-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
-        }
-        
-        .gallery-item {
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            position: relative;
-            height: 250px;
+
+        .drawer-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-color);
             cursor: pointer;
         }
-        
-        .gallery-item img {
+
+        .drawer-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            flex: 1;
+        }
+
+        .drawer-link {
+            text-decoration: none;
+            color: var(--text-color);
+            font-size: 1.2rem;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid var(--border-color);
+            transition: color var(--transition-fast);
+        }
+
+        .drawer-link:hover {
+            color: var(--primary-color);
+        }
+
+        /* ========== HERO SECTION ========== */
+        .hero-section {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .hero-background img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.8s ease;
         }
-        
-        .gallery-caption {
+
+        .hero-overlay {
             position: absolute;
-            bottom: 0;
+            top: 0;
             left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-            color: white;
-            padding: 15px;
-            transform: translateY(100%);
-            transition: transform 0.4s ease;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 100%);
         }
-        
-        .gallery-item:hover .gallery-caption {
+
+        .hero-content {
+            color: white;
+            max-width: 800px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--accent-color);
+            color: var(--dark-color);
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-full);
+            font-weight: 600;
+            margin-bottom: 2rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .title-line {
+            display: block;
+        }
+
+        .title-line.accent {
+            color: var(--accent-color);
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 600px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-hero-primary {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: var(--radius-md);
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all var(--transition-normal);
+        }
+
+        .btn-hero-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-hero-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid var(--accent-color);
+            padding: 1rem 2rem;
+            border-radius: var(--radius-md);
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all var(--transition-normal);
+        }
+
+        .btn-hero-secondary:hover {
+            background: var(--accent-color);
+            color: var(--dark-color);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-10px); }
+        }
+
+        /* ========== ABOUT SECTION ========== */
+        .about-section {
+            background: white;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-label {
+            display: inline-block;
+            color: var(--secondary-color);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+
+        @media (min-width: 992px) {
+            .about-grid {
+                grid-template-columns: 1fr 1fr;
+                align-items: center;
+            }
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .image-frame {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+            position: relative;
+        }
+
+        .image-frame img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+        }
+
+        .image-badge {
+            position: absolute;
+            bottom: 1rem;
+            right: 1rem;
+            background: white;
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: var(--shadow-md);
+        }
+
+        .about-content {
+            padding: 2rem;
+        }
+
+        .about-intro h3 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .intro-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .feature-item {
+            padding: 1.5rem;
+            background: var(--light-color);
+            border-radius: var(--radius-md);
+            transition: transform var(--transition-normal);
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-item h4 {
+            margin-bottom: 0.5rem;
+            color: var(--dark-color);
+        }
+
+        .about-quote {
+            border-left: 4px solid var(--primary-color);
+            padding-left: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .about-quote p {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: var(--text-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .about-quote cite {
+            color: var(--text-light);
+            font-style: normal;
+        }
+
+        /* ========== PRODUCTS SECTION ========== */
+        .products-section {
+            background: var(--light-color);
+        }
+
+        .category-filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 2rem;
+        }
+
+        .filter-btn {
+            background: white;
+            border: 2px solid var(--border-color);
+            padding: 0.5rem 1.5rem;
+            border-radius: var(--radius-full);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-normal);
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .product-image {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-slow);
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+
+        .quick-view {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 40px;
+            height: 40px;
+            background: white;
+            border: none;
+            border-radius: var(--radius-full);
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all var(--transition-normal);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-card:hover .quick-view {
+            opacity: 1;
             transform: translateY(0);
         }
-        
-        /* ========== LIGHTBOX ========== */
-        .lightbox-modal {
+
+        .product-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            padding: 0.3rem 0.8rem;
+            border-radius: var(--radius-full);
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .product-badge.bestseller {
+            background: var(--accent-color);
+            color: var(--dark-color);
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-category {
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            color: var(--accent-color);
+            font-size: 0.9rem;
+        }
+
+        .product-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-description {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .product-price {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .price {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .price-old {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            text-decoration: line-through;
+        }
+
+        .btn-add-cart {
+            width: 45px;
+            height: 45px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: var(--radius-full);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--transition-normal);
+        }
+
+        .btn-add-cart:hover {
+            background: var(--primary-dark);
+            transform: scale(1.1);
+        }
+
+        .products-cta {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            background: white;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-custom {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: var(--radius-md);
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            transition: all var(--transition-normal);
+        }
+
+        .btn-custom:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* ========== GALLERY SECTION ========== */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-card {
+            position: relative;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            height: 300px;
+            cursor: pointer;
+        }
+
+        .gallery-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-slow);
+        }
+
+        .gallery-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity var(--transition-normal);
+        }
+
+        .gallery-card:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-info {
+            text-align: center;
+            color: white;
+            padding: 1rem;
+        }
+
+        .gallery-info h3 {
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .gallery-zoom {
+            width: 50px;
+            height: 50px;
+            background: var(--accent-color);
+            border: none;
+            border-radius: var(--radius-full);
+            color: var(--dark-color);
+            font-size: 1.2rem;
+            cursor: pointer;
+            margin-top: 1rem;
+            transition: all var(--transition-normal);
+        }
+
+        .gallery-zoom:hover {
+            transform: scale(1.1);
+        }
+
+        /* ========== CONTACT SECTION ========== */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+
+        @media (min-width: 992px) {
+            .contact-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .contact-info {
+            padding: 2rem;
+            background: white;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+        }
+
+        .contact-title {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-subtitle {
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            border-radius: var(--radius-md);
+            background: var(--light-color);
+            text-decoration: none;
+            color: inherit;
+            border: none;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+
+        .contact-method:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .contact-method:hover .method-icon {
+            background: white;
+            color: var(--primary-color);
+        }
+
+        .method-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .method-content {
+            flex: 1;
+        }
+
+        .method-label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+        }
+
+        .method-value {
+            display: block;
+            font-size: 1.1rem;
+        }
+
+        .method-note {
+            display: block;
+            font-size: 0.85rem;
+            opacity: 0.8;
+            margin-top: 0.2rem;
+        }
+
+        .business-hours,
+        .contact-social {
+            margin-top: 2rem;
+        }
+
+        .hours-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .social-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+
+        .social-btn {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            transition: all var(--transition-normal);
+        }
+
+        .social-btn.instagram {
+            background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+        }
+
+        .social-btn.tiktok {
+            background: #000000;
+        }
+
+        .social-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .contact-form-wrapper {
+            padding: 2rem;
+            background: white;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+        }
+
+        .contact-form h3 {
+            font-size: 1.8rem;
+            color: var(--dark-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 2px solid var(--border-color);
+            border-radius: var(--radius-md);
+            font-family: var(--font-main);
+            font-size: 1rem;
+            transition: all var(--transition-fast);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(156, 74, 26, 0.1);
+        }
+
+        .form-error {
+            color: var(--error-color);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            min-height: 1.2rem;
+        }
+
+        .btn-submit {
+            width: 100%;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 1rem;
+            border-radius: var(--radius-md);
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all var(--transition-normal);
+        }
+
+        .btn-submit:hover {
+            background: var(--primary-dark);
+        }
+
+        .btn-text {
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-loader {
             display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,0.3);
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        .form-note {
+            text-align: center;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+
+        /* ========== FLOATING ELEMENTS ========== */
+        .float-whatsapp {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            color: white;
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            text-decoration: none;
+            box-shadow: var(--shadow-lg);
+            z-index: 999;
+            transition: all var(--transition-normal);
+        }
+
+        .float-whatsapp:hover {
+            transform: scale(1.1);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .float-text {
+            position: absolute;
+            right: 70px;
+            background: #25D366;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-md);
+            font-size: 0.9rem;
+            opacity: 0;
+            transition: opacity var(--transition-normal);
+            white-space: nowrap;
+        }
+
+        .float-whatsapp:hover .float-text {
+            opacity: 1;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            left: 2rem;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: var(--radius-full);
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all var(--transition-normal);
+            z-index: 998;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+        }
+
+        /* ========== FOOTER ========== */
+        .main-footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-description {
+            opacity: 0.8;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .footer-newsletter {
+            margin-top: 1.5rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            margin-top: 0.8rem;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 0.8rem;
+            border: none;
+            border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+        }
+
+        .newsletter-form button {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.2rem;
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            cursor: pointer;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .footer-contact {
+            font-style: normal;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-contact p {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all var(--transition-fast);
+        }
+
+        .footer-social a:hover {
+            background: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .payment-methods {
+            margin-top: 1.5rem;
+        }
+
+        .payment-icons {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 0.8rem;
+            flex-wrap: wrap;
+        }
+
+        .payment-icons i,
+        .payment-icons span {
+            font-size: 1.5rem;
+            opacity: 0.8;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9rem;
+        }
+
+        /* ========== LIGHTBOX ========== */
+        .lightbox {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.95);
+            background: rgba(0,0,0,0.95);
             z-index: 2000;
+            display: none;
             justify-content: center;
             align-items: center;
         }
-        
-        .lightbox-modal.active {
+
+        .lightbox.active {
             display: flex;
         }
-        
+
         .lightbox-content {
             position: relative;
-            max-width: 90%;
-            max-height: 90%;
+            width: 90%;
+            max-width: 1200px;
+            height: 90%;
+            background: black;
+            border-radius: var(--radius-md);
+            overflow: hidden;
         }
-        
-        .lightbox-img {
-            max-width: 100%;
-            max-height: 80vh;
-            border-radius: 8px;
-        }
-        
+
         .lightbox-close {
             position: absolute;
-            top: 15px;
-            right: 20px;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(255,255,255,0.1);
             color: white;
-            font-size: 35px;
-            cursor: pointer;
-            background: none;
             border: none;
-            z-index: 2001;
+            width: 40px;
+            height: 40px;
+            border-radius: var(--radius-full);
+            cursor: pointer;
+            z-index: 2;
+            font-size: 1.2rem;
         }
-        
+
         .lightbox-nav {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255,255,255,0.1);
             color: white;
             border: none;
             width: 50px;
             height: 50px;
-            border-radius: 50%;
-            font-size: 20px;
+            border-radius: var(--radius-full);
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            z-index: 2;
+            font-size: 1.2rem;
+            transition: all var(--transition-fast);
         }
-        
-        .lightbox-prev { left: 15px; }
-        .lightbox-next { right: 15px; }
-        
-        /* ========== SERVICES ========== */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 25px;
+
+        .lightbox-nav:hover {
+            background: rgba(255,255,255,0.2);
         }
-        
-        .service-card {
-            background-color: white;
-            padding: 30px 25px;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
+
+        .lightbox-nav.prev {
+            left: 1rem;
         }
-        
-        .service-card:hover {
-            transform: translateY(-8px);
+
+        .lightbox-nav.next {
+            right: 1rem;
         }
-        
-        .service-icon {
-            font-size: 40px;
-            color: var(--primary);
-            margin-bottom: 20px;
-            height: 70px;
-            width: 70px;
-            line-height: 70px;
-            background-color: rgba(156, 74, 26, 0.1);
-            border-radius: 50%;
-            margin: 0 auto 20px;
-        }
-        
-        .service-card h3 {
-            font-size: 22px;
-            margin-bottom: 15px;
-            color: var(--dark);
-        }
-        
-        /* ========== CONTACT ========== */
-        .contact {
-            background: linear-gradient(to bottom right, #FEF9F3, #F9F1E8);
-        }
-        
-        .contact-content {
-            display: flex;
-            flex-direction: column;
-            gap: 40px;
-        }
-        
-        .contact-info h3 {
-            font-size: 28px;
-            color: var(--dark);
-            margin-bottom: 20px;
-        }
-        
-        .contact-info p {
-            margin-bottom: 20px;
-            font-size: 16px;
-            color: #555;
-        }
-        
-        .contact-detail {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-            padding: 12px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.03);
-        }
-        
-        .contact-detail i {
-            font-size: 20px;
-            color: var(--primary);
-            margin-right: 15px;
-            width: 40px;
-            height: 40px;
-            line-height: 40px;
-            text-align: center;
-            background-color: rgba(156, 74, 26, 0.1);
-            border-radius: 50%;
-            flex-shrink: 0;
-        }
-        
-        .social-links {
-            display: flex;
-            margin-top: 20px;
-            gap: 12px;
-        }
-        
-        .social-link {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 45px;
-            height: 45px;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            color: white;
-            border-radius: 50%;
-            text-decoration: none;
-            transition: var(--transition);
-            font-size: 18px;
-        }
-        
-        .contact-form {
-            background-color: white;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-        }
-        
-        .contact-form h3 {
-            font-size: 24px;
-            color: var(--dark);
-            margin-bottom: 25px;
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: var(--dark);
-            font-size: 14px;
-        }
-        
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 12px 15px;
-            border: 2px solid #eee;
-            border-radius: 8px;
-            font-size: 15px;
-            transition: var(--transition);
-            background-color: #fcfcfc;
-        }
-        
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            border-color: var(--primary);
-            outline: none;
-            background-color: white;
-        }
-        
-        .form-group textarea {
-            height: 140px;
-            resize: vertical;
-        }
-        
-        /* ========== MAP ========== */
-        .map-container {
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            height: 350px;
-            position: relative;
-            margin-top: 30px;
-        }
-        
-        .map-frame {
+
+        .lightbox-image-container {
             width: 100%;
             height: 100%;
-            border: none;
-        }
-        
-        .map-overlay {
-            position: absolute;
-            bottom: 15px;
-            left: 15px;
-            right: 15px;
-            background-color: rgba(255, 255, 255, 0.95);
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            border-left: 4px solid var(--primary);
-        }
-        
-        /* ========== FOOTER ========== */
-        footer {
-            background: linear-gradient(to right, #7E3C13, #9C4A1A);
-            color: white;
-            padding: 60px 0 25px;
-            width: 100%;
-        }
-        
-        .footer-content {
-            display: flex;
-            flex-direction: column;
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-        
-        .footer-column {
-            flex: 1;
-        }
-        
-        .footer-logo {
-            height: 60px;
-            width: auto;
-            margin-bottom: 15px;
-            filter: brightness(0) invert(1);
-        }
-        
-        .footer-column h3 {
-            font-size: 20px;
-            margin-bottom: 20px;
-            color: var(--accent);
-            padding-bottom: 10px;
-            border-bottom: 2px solid rgba(241, 196, 15, 0.3);
-        }
-        
-        .footer-links {
-            list-style: none;
-        }
-        
-        .footer-links li {
-            margin-bottom: 12px;
-        }
-        
-        .footer-links a {
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            transition: var(--transition);
             display: flex;
             align-items: center;
-            font-size: 14px;
+            justify-content: center;
         }
-        
-        .footer-links a:hover {
-            color: var(--accent);
+
+        .lightbox-image-container img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
         }
-        
-        .copyright {
+
+        .lightbox-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 1.5rem;
             text-align: center;
-            padding-top: 25px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 13px;
-            color: rgba(255, 255, 255, 0.7);
         }
-        
-        /* ========== ANIMATIONS ========== */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
+
+        .lightbox-caption h3 {
+            color: white;
+            margin-bottom: 0.5rem;
         }
-        
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
+
+        .lightbox-counter {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: rgba(0,0,0,0.5);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: var(--radius-full);
+            font-size: 0.9rem;
         }
-        
-        /* ============================================ */
-        /* RESPONSIVE DESIGN - MOBILE FIRST ENHANCEMENT */
-        /* ============================================ */
-        
-        /* TABLET (768px and up) */
-        @media (min-width: 768px) {
-            .logo-img { height: 65px; }
-            .logo-main { font-size: 26px; }
-            .logo-sub { font-size: 13px; }
-            
-            nav ul { gap: 30px; }
-            nav a { font-size: 16px; }
-            
-            .hero { padding: 140px 20px; }
-            .hero h1 { font-size: 48px; }
-            .hero p { font-size: 20px; }
-            
-            .section { padding: 100px 0; }
-            .section-title h2 { font-size: 42px; }
-            
-            .about-content { flex-direction: row; gap: 50px; }
-            .about-text h3 { font-size: 32px; }
-            
-            .contact-content { flex-direction: row; }
-            
-            .footer-content { flex-direction: row; }
+
+        /* ========== LOADING ========== */
+        .loading-spinner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255,255,255,0.9);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
         }
-        
-        /* DESKTOP (992px and up) */
-        @media (min-width: 992px) {
-            .hero h1 { font-size: 52px; }
-            .gallery-container { grid-template-columns: repeat(3, 1fr); }
-            .services-grid { grid-template-columns: repeat(3, 1fr); }
+
+        .loading-spinner.active {
+            display: flex;
         }
-        
-        /* MOBILE SPECIFIC (below 768px) */
-        @media (max-width: 767px) {
-            /* Header mobile menu */
-            .mobile-menu-btn { 
-                display: block; 
-                position: absolute;
-                right: 0;
-                top: 50%;
-                transform: translateY(-50%);
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid var(--border-color);
+            border-top-color: var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 1200px) {
+            .hero-title {
+                font-size: 3rem;
             }
-            
-            nav {
+        }
+
+        @media (max-width: 992px) {
+            .main-nav {
                 display: none;
-                width: 100%;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                background: white;
-                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-                padding: 20px;
-                border-radius: 0 0 10px 10px;
             }
             
-            nav.active {
+            .mobile-menu-btn {
                 display: block;
             }
             
-            nav ul {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-stats {
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-description {
+                font-size: 1rem;
+            }
+            
+            .hero-actions {
                 flex-direction: column;
-                gap: 15px;
             }
             
-            nav a {
-                display: block;
-                padding: 10px 0;
-                border-bottom: 1px solid #eee;
-            }
-            
-            nav a:last-child {
-                border-bottom: none;
-            }
-            
-            /* Hero adjustments */
-            .hero {
-                padding: 80px 20px;
-                margin-bottom: 40px;
-                background-attachment: scroll;
-            }
-            
-            .hero h1 {
-                font-size: 32px;
-                margin-bottom: 15px;
-            }
-            
-            .hero p {
-                font-size: 16px;
-                margin-bottom: 25px;
-            }
-            
-            .btn {
-                display: block;
+            .btn-hero-primary,
+            .btn-hero-secondary {
                 width: 100%;
-                margin: 10px 0;
+                justify-content: center;
             }
             
-            /* Section adjustments */
-            .section {
-                padding: 60px 0;
+            .hero-stats {
+                flex-direction: column;
+                gap: 1rem;
             }
             
             .section-title {
-                margin-bottom: 40px;
+                font-size: 2rem;
             }
             
-            .section-title h2 {
-                font-size: 30px;
-            }
-            
-            /* Gallery */
-            .gallery-container {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 15px;
-            }
-            
-            .gallery-item {
-                height: 180px;
-            }
-            
-            /* Contact form */
-            .contact-form {
-                padding: 25px;
-            }
-            
-            /* Map */
-            .map-container {
-                height: 300px;
-            }
-            
-            .map-overlay h4 {
-                font-size: 16px;
-            }
-            
-            .map-overlay p {
-                font-size: 13px;
-            }
-            
-            /* Footer */
-            footer {
-                padding: 50px 0 20px;
-            }
-            
-            .copyright {
-                font-size: 12px;
-            }
-        }
-        
-        /* SMALL MOBILE (below 480px) */
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 15px;
-            }
-            
-            .logo-text {
-                max-width: 180px;
-            }
-            
-            .logo-main {
-                font-size: 20px;
-            }
-            
-            .logo-sub {
-                font-size: 11px;
-                white-space: normal;
-                line-height: 1.2;
-            }
-            
-            .hero h1 {
-                font-size: 28px;
-            }
-            
-            .hero p {
-                font-size: 15px;
-            }
-            
-            .section-title h2 {
-                font-size: 26px;
-            }
-            
-            .about-text h3 {
-                font-size: 24px;
-            }
-            
-            .products-grid,
-            .gallery-container {
+            .features-grid {
                 grid-template-columns: 1fr;
             }
             
-            .gallery-item {
-                height: 220px;
+            .products-grid {
+                grid-template-columns: 1fr;
             }
             
-            .service-card,
-            .product-card {
-                padding: 20px;
+            .gallery-grid {
+                grid-template-columns: 1fr;
             }
             
-            .contact-form {
-                padding: 20px;
+            .float-whatsapp {
+                bottom: 1rem;
+                right: 1rem;
             }
             
-            .form-group input,
-            .form-group textarea,
-            .form-group select {
-                padding: 10px 12px;
-                font-size: 14px;
+            .back-to-top {
+                bottom: 1rem;
+                left: 1rem;
             }
         }
-        
-        /* LANDSCAPE MODE */
-        @media (max-height: 600px) and (orientation: landscape) {
-            .hero {
-                padding: 60px 20px;
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 1.8rem;
             }
             
-            .hero h1 {
-                font-size: 28px;
-                margin-bottom: 10px;
+            .hero-badge {
+                font-size: 0.9rem;
+                padding: 0.4rem 0.8rem;
             }
             
-            .hero p {
-                font-size: 14px;
-                margin-bottom: 20px;
+            .category-filters {
+                overflow-x: auto;
+                justify-content: flex-start;
+                padding-bottom: 0.5rem;
             }
             
-            .section {
-                padding: 40px 0;
+            .filter-btn {
+                white-space: nowrap;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
             }
         }
+
+        /* ========== UTILITY CLASSES ========== */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .mt-1 { margin-top: 0.5rem; }
+        .mt-2 { margin-top: 1rem; }
+        .mt-3 { margin-top: 1.5rem; }
+        .mt-4 { margin-top: 2rem; }
+        .mt-5 { margin-top: 3rem; }
+
+        .mb-1 { margin-bottom: 0.5rem; }
+        .mb-2 { margin-bottom: 1rem; }
+        .mb-3 { margin-bottom: 1.5rem; }
+        .mb-4 { margin-bottom: 2rem; }
+        .mb-5 { margin-bottom: 3rem; }
     </style>
-</head>
-<body>
-    <!-- Header & Navigation -->
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <a href="#accueil" class="logo-container">
-                    <img src="timtimol.png" alt="Logo Timtimol" class="logo-img">
-                    <div class="logo-text">
-                        <div class="logo-main">TIMTIMOL</div>
-                    </div>
-                </a>
-                
-                <button class="mobile-menu-btn" id="mobileMenuBtn">
-                    <i class="fas fa-bars"></i>
-                </button>
-                
-                <nav id="mainNav">
-                    <ul>
-                        <li><a href="#accueil">Accueil</a></li>
-                        <li><a href="#apropos">À Propos</a></li>
-                        <li><a href="#produits">Produits</a></li>
-                        <li><a href="#galerie">Galerie</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="accueil">
-        <div class="container">
-            <div class="hero-content fade-in">
-                <h1>Timtimol - Élégance Sénégalaise</h1>
-                <p>Découvrez une collection exclusive d'habits et accessoires sénégalais stylés, créés avec passion par Awa Ndiaye. Commandes sur mesure disponibles.</p>
-                <a href="#produits" class="btn">Voir la Collection</a>
-                <a href="#contact" class="btn btn-secondary">Commander</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="section" id="apropos">
-        <div class="container">
-            <div class="section-title fade-in">
-                <h2>À Propos de Timtimol</h2>
-            </div>
-            
-            <div class="about-content">
-                <div class="about-img fade-in">
-                    <img src="photo-awa.jpg" alt="Awa Ndiaye - Fondatrice de Timtimol">
-                </div>
-                
-                <div class="about-text fade-in">
-                    <h3>Bienvenue chez Timtimol</h3>
-                    <p>Je suis Awa Ndiaye, créatrice et fondatrice de Timtimol. Passionnée par la mode sénégalaise, j'ai décidé de partager mon amour pour les tissus traditionnels et les designs contemporains à travers ma boutique.</p>
-                    <p>Timtimol propose une sélection soigneusement élaborée d'habits et accessoires qui allient tradition et modernité. Chaque pièce est conçue avec attention aux détails et respect des techniques artisanales.</p>
-                    <p>Avec mon tailleur expérimenté, je propose également des créations sur mesure pour répondre à vos désirs uniques et vous offrir des vêtements qui vous ressemblent.</p>
-                    <p class="signature">"La beauté africaine à travers chaque fil"</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Products Section -->
-    <section class="section products" id="produits">
-        <div class="container">
-            <div class="section-title fade-in">
-                <h2>Nos Collections</h2>
-            </div>
-            
-            <div class="products-grid">
-                <div class="product-card fade-in">
-                    <div class="product-img">
-                        <img src="produit-boubou.jpg" alt="Boubou Sénégalais">
-                    </div>
-                    <div class="product-info">
-                        <h3>Boubou Élégant</h3>
-                        <p>Boubou traditionnel avec broderies détaillées, parfait pour les cérémonies et événements spéciaux. Disponible en plusieurs coloris.</p>
-                        <div class="product-price">
-                            <span>À partir de</span>
-                            45.000 FCFA
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="product-card fade-in">
-                    <div class="product-img">
-                        <img src="produit-accessoires.jpeg" alt="Accessoires Sénégalais">
-                    </div>
-                    <div class="product-info">
-                        <h3>Accessoires Traditionnels</h3>
-                        <p>Collection de bijoux, sacs et foulards inspirés des motifs et couleurs du Sénégal. Pièces uniques faites à la main.</p>
-                        <div class="product-price">
-                            <span>À partir de</span>
-                            8.000 FCFA
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="product-card fade-in">
-                    <div class="product-img">
-                        <img src="produit-robe.jpeg" alt="Robe Moderne">
-                    </div>
-                    <div class="product-info">
-                        <h3>Robes Modernes</h3>
-                        <p>Robes contemporaines utilisant des tissus africains pour un style unique et élégant. Idéal pour toutes les occasions.</p>
-                        <div class="product-price">
-                            <span>À partir de</span>
-                            35.000 FCFA
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Gallery Section -->
-    <section class="section" id="galerie">
-        <div class="container">
-            <div class="section-title fade-in">
-                <h2>Notre Galerie</h2>
-                <p style="color: #666; font-size: 16px; margin-top: 10px;">Cliquez sur une image pour l'agrandir</p>
-            </div>
-            
-            <div class="gallery-container">
-                <div class="gallery-item fade-in" data-index="0">
-                    <img src="galerie-1.jpeg" alt="Collection Élégance">
-                    <div class="gallery-caption">
-                        <h4>Collection Élégance</h4>
-                        <p>Pièces uniques faites main</p>
-                    </div>
-                </div>
-                
-                <div class="gallery-item fade-in" data-index="1">
-                    <img src="galerie-2.jpeg" alt="Styles Traditionnels">
-                    <div class="gallery-caption">
-                        <h4>Styles Traditionnels</h4>
-                        <p>Inspiration africaine moderne</p>
-                    </div>
-                </div>
-                
-                <div class="gallery-item fade-in" data-index="2">
-                    <img src="galerie-3.jpeg" alt="Créations sur Mesure">
-                    <div class="gallery-caption">
-                        <h4>Créations sur Mesure</h4>
-                        <p>Personnalisé selon vos envies</p>
-                    </div>
-                </div>
-                
-                <div class="gallery-item fade-in" data-index="3">
-                    <img src="galerie-4.jpeg" alt="Accessoires Exclusifs">
-                    <div class="gallery-caption">
-                        <h4>Accessoires Exclusifs</h4>
-                        <p>Bijoux et sacs artisanaux</p>
-                    </div>
-                </div>
-                <div class="gallery-item fade-in" data-index="4">
-                    <img src="galerie-5.jpeg" alt="Création Timtimol - Tissus Authentiques">
-                    <div class="gallery-caption">
-                        <h4>Tissus Authentiques</h4>
-                        <p>Matériaux de qualité premium</p>
-                    </div>
-                </div>
-                <div class="gallery-item fade-in" data-index="5">
-                    <img src="galerie-6.jpeg" alt="Création Timtimol - Collections Saisonnières">
-                    <div class="gallery-caption">
-                        <h4>Collections Saisonnières</h4>
-                        <p>Nouveautés régulières</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Lightbox Modal -->
-    <div class="lightbox-modal" id="lightboxModal">
-        <button class="lightbox-close" id="lightboxClose">&times;</button>
-        <button class="lightbox-nav lightbox-prev" id="lightboxPrev">
-            <i class="fas fa-chevron-left"></i>
-        </button>
-        <button class="lightbox-nav lightbox-next" id="lightboxNext">
-            <i class="fas fa-chevron-right"></i>
-        </button>
-        <div class="lightbox-content">
-            <img class="lightbox-img" id="lightboxImg" src="" alt="">
-            <div class="lightbox-caption" id="lightboxCaption"></div>
-        </div>
-    </div>
-
-    <!-- Services Section -->
-    <section class="section" id="services">
-        <div class="container">
-            <div class="section-title fade-in">
-                <h2>Nos Services</h2>
-            </div>
-            
-            <div class="services-grid">
-                <div class="service-card fade-in">
-                    <div class="service-icon">
-                        <i class="fas fa-tshirt"></i>
-                    </div>
-                    <h3>Vente d'Habits & Accessoires</h3>
-                    <p>Large sélection de vêtements et accessoires sénégalais pour hommes, femmes et enfants.</p>
-                </div>
-                
-                <div class="service-card fade-in">
-                    <div class="service-icon">
-                        <i class="fas fa-ruler-combined"></i>
-                    </div>
-                    <h3>Créations sur Mesure</h3>
-                    <p>Service de tailleur pour des créations personnalisées selon vos mesures et préférences.</p>
-                </div>
-                
-                <div class="service-card fade-in">
-                    <div class="service-icon">
-                        <i class="fas fa-shipping-fast"></i>
-                    </div>
-                    <h3>Livraison Nationale</h3>
-                    <p>Expédition dans tout le Sénégal avec suivi de commande et service client dédié.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="section contact" id="contact">
-        <div class="container">
-            <div class="section-title fade-in">
-                <h2>Contactez-Nous</h2>
-            </div>
-            
-            <div class="contact-content">
-                <div class="contact-info fade-in">
-                    <h3>Prenez contact avec Timtimol</h3>
-                    <p>Pour toute commande, question ou demande de création sur mesure, n'hésitez pas à nous contacter.</p>
-                    
-                    <div class="contact-detail">
-                        <i class="fas fa-user"></i>
-                        <div>
-                            <strong>Propriétaire</strong>
-                            Awa Ndiaye
-                        </div>
-                    </div>
-                    
-                    <div class="contact-detail">
-                        <i class="fas fa-phone-alt"></i>
-                        <div>
-                            <strong>Téléphone</strong>
-                            +221 77 534 48 83
-                        </div>
-                    </div>
-                    
-                    <div class="contact-detail">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <strong>Adresse</strong>
-                            Golf Sud Station 10, Derrière Hôpital Dalal Diam<br>
-                            Guédiawaye - Dakar, Sénégal
-                        </div>
-                    </div>
-                    
-                    <div class="contact-detail">
-                        <i class="fas fa-clock"></i>
-                        <div>
-                            <strong>Horaires</strong>
-                            Ouvert de 8h à 22h - 7j/7
-                        </div>
-                    </div>
-                    
-                    <h3 style="margin-top: 25px;">Suivez-nous</h3>
-                    <div class="social-links">
-                        <a href="https://www.instagram.com/timtimol_awa_/" target="_blank" class="social-link">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="https://www.tiktok.com/@timtimol_awa" target="_blank" class="social-link">
-                            <i class="fab fa-tiktok"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="contact-form fade-in">
-                    <h3>Envoyez un message</h3>
-                    <form id="contactForm" action="https://formspree.io/f/mpqqqvpz" method="POST">
-                        <input type="hidden" name="_subject" value="Nouveau message depuis Timtimol">
-                        <input type="hidden" name="_language" value="fr">
-                        
-                        <div class="form-group">
-                            <label for="name">Nom complet *</label>
-                            <input type="text" id="name" name="name" required placeholder="Votre nom et prénom">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email">Email *</label>
-                            <input type="email" id="email" name="email" required placeholder="Votre adresse email">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="phone">Téléphone *</label>
-                            <input type="tel" id="phone" name="phone" required placeholder="Votre numéro de téléphone">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="subject">Sujet *</label>
-                            <select id="subject" name="subject" required>
-                                <option value="">Sélectionnez un sujet</option>
-                                <option value="Commande de produit">Commande de produit</option>
-                                <option value="Demande de création sur mesure">Demande de création sur mesure</option>
-                                <option value="Question générale">Question générale</option>
-                                <option value="Information sur la livraison">Information sur la livraison</option>
-                                <option value="Autre">Autre</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="message">Message *</label>
-                            <textarea id="message" name="message" required placeholder="Décrivez votre demande ici..."></textarea>
-                        </div>
-                        
-                        <button type="submit" class="btn" style="width: 100%;">
-                            <i class="fas fa-paper-plane"></i> Envoyer le message
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Map Section -->
-    <section class="section" style="padding-top: 0;">
-        <div class="container">
-            <div class="map-container fade-in">
-                <iframe 
-                    class="map-frame" 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3859.527091238535!2d-17.393322724226354!3d14.704475585780146!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xec1730d3a5f8a5b%3A0x527445c6a2a3a3b3!2sGolf%20Sud%2C%20Dakar%2C%20S%C3%A9n%C3%A9gal!5e0!3m2!1sfr!2sfr!4v1680000000000!5m2!1sfr!2sfr" 
-                    allowfullscreen="" 
-                    loading="lazy" 
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
-                <div class="map-overlay">
-                    <h4><i class="fas fa-map-marker-alt"></i> Boutique Timtimol</h4>
-                    <p>Golf Sud Station 10, Derrière Hôpital Dalal Diam, Guédiawaye - Dakar</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <img src="timtimol.png" alt="Logo Timtimol" class="footer-logo">
-                    <p>Boutique d'habits et accessoires sénégalais alliant tradition et modernité. Créations sur mesure disponibles.</p>
-                    <div class="social-links" style="margin-top: 15px;">
-                        <a href="https://www.instagram.com/timtimol_awa_/" target="_blank" class="social-link">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="https://www.tiktok.com/@timtimol_awa" target="_blank" class="social-link">
-                            <i class="fab fa-tiktok"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Liens Rapides</h3>
-                    <ul class="footer-links">
-                        <li><a href="#accueil"><i class="fas fa-chevron-right"></i> Accueil</a></li>
-                        <li><a href="#apropos"><i class="fas fa-chevron-right"></i> À Propos</a></li>
-                        <li><a href="#produits"><i class="fas fa-chevron-right"></i> Produits</a></li>
-                        <li><a href="#galerie"><i class="fas fa-chevron-right"></i> Galerie</a></li>
-                        <li><a href="#services"><i class="fas fa-chevron-right"></i> Services</a></li>
-                        <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Contact</h3>
-                    <ul class="footer-links">
-                        <li><a href="tel:+221775344883"><i class="fas fa-phone"></i> +221 77 534 48 83</a></li>
-                        <li><a href="#"><i class="fas fa-user"></i> Awa Ndiaye</a></li>
-                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Golf Sud, Guédiawaye - Dakar</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="copyright">
-                <p>&copy; <span id="currentYear"></span> Timtimol - Tous droits réservés.</p>
-                <p style="margin-top: 10px; font-size: 12px;">
-                    Instagram: <a href="https://www.instagram.com/timtimol_awa_/" target="_blank">@timtimol_awa_</a> | 
-                    TikTok: <a href="https://www.tiktok.com/@timtimol_awa" target="_blank">@timtimol_awa</a>
-                </p>
-            </div>
-        </div>
-    </footer>
-
+    <!-- JavaScript optimisé -->
     <script>
-        // Mobile menu toggle
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const mainNav = document.getElementById('mainNav');
+        // ========== PERFORMANCE & LOADING ==========
+        document.addEventListener('DOMContentLoaded', function() {
+            // Lazy loading des images
+            const lazyImages = document.querySelectorAll('.lazy-img');
+            
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        const src = img.getAttribute('data-src');
+                        
+                        if (src) {
+                            img.src = src;
+                            img.classList.add('loaded');
+                            img.classList.remove('blur-up');
+                            observer.unobserve(img);
+                        }
+                    }
+                });
+            }, {
+                rootMargin: '50px'
+            });
+            
+            lazyImages.forEach(img => imageObserver.observe(img));
+            
+            // Update year
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+            
+            // Scroll animations
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const fadeObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '50px'
+            });
+            
+            fadeElements.forEach(el => fadeObserver.observe(el));
+        });
+
+        // ========== NAVIGATION ==========
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileNavDrawer = document.querySelector('.mobile-nav-drawer');
+        const drawerCloseBtn = document.querySelector('.drawer-close');
         
         mobileMenuBtn.addEventListener('click', function() {
-            mainNav.classList.toggle('active');
-            mobileMenuBtn.innerHTML = mainNav.classList.contains('active') 
-                ? '<i class="fas fa-times"></i>' 
-                : '<i class="fas fa-bars"></i>';
+            const isExpanded = this.getAttribute('aria-expanded') === 'true';
+            this.setAttribute('aria-expanded', !isExpanded);
+            mobileNavDrawer.classList.toggle('open', !isExpanded);
+            document.body.style.overflow = !isExpanded ? 'hidden' : '';
         });
         
-        // Smooth scrolling
-        document.querySelectorAll('nav a, .footer-links a').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                if(this.getAttribute('href').startsWith('#')) {
-                    e.preventDefault();
-                    
-                    const targetId = this.getAttribute('href');
-                    if(targetId === '#') return;
-                    
-                    const targetElement = document.querySelector(targetId);
-                    
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                    
-                    // Close mobile menu
-                    if (mainNav.classList.contains('active')) {
-                        mainNav.classList.remove('active');
-                        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+        drawerCloseBtn.addEventListener('click', function() {
+            mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            mobileNavDrawer.classList.remove('open');
+            document.body.style.overflow = '';
+        });
+        
+        // Close drawer when clicking on a link
+        document.querySelectorAll('.drawer-link').forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                mobileNavDrawer.classList.remove('open');
+                document.body.style.overflow = '';
+            });
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            const backToTop = document.querySelector('.back-to-top');
+            
+            if (window.scrollY > 100) {
+                header.classList.add('header-scrolled');
+                backToTop.classList.add('visible');
+            } else {
+                header.classList.remove('header-scrolled');
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        // ========== ANIMATED COUNTERS ==========
+        function animateCounter(element, target, duration) {
+            const start = 0;
+            const increment = target / (duration / 16);
+            let current = start;
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target;
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current);
+                }
+            }, 16);
+        }
+        
+        const statNumbers = document.querySelectorAll('.stat-number[data-count]');
+        const statObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const element = entry.target;
+                    const target = parseInt(element.getAttribute('data-count'));
+                    animateCounter(element, target, 2000);
+                    statObserver.unobserve(element);
+                }
+            });
+        });
+        
+        statNumbers.forEach(number => statObserver.observe(number));
+
+        // ========== PRODUCT FILTERS ==========
+        document.querySelectorAll('.filter-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const filter = this.getAttribute('data-filter');
+                
+                // Update active button
+                document.querySelectorAll('.filter-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                this.classList.add('active');
+                
+                // Filter products
+                document.querySelectorAll('.product-card').forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category').includes(filter)) {
+                        card.style.display = 'block';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, 10);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(20px)';
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 300);
                     }
-                }
+                });
             });
         });
-        
-        // Form submission
-        const contactForm = document.getElementById('contactForm');
-        contactForm.addEventListener('submit', function(e) {
-            // Laisser Formspree gérer l'envoi
-            const name = document.getElementById('name').value;
-            setTimeout(function() {
-                alert(`✅ Merci ${name} ! Votre message a été envoyé.`);
-            }, 100);
-        });
-        
-        // Update copyright year
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
-        
-        // Animation on scroll
-        const fadeElements = document.querySelectorAll('.fade-in');
-        
-        const fadeInOnScroll = () => {
-            fadeElements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                if (elementTop < window.innerHeight - 100) {
-                    element.classList.add('visible');
-                }
-            });
-        };
-        
-        window.addEventListener('scroll', fadeInOnScroll);
-        fadeInOnScroll();
-        
-        // Lightbox
-        const lightboxModal = document.getElementById('lightboxModal');
-        const lightboxImg = document.getElementById('lightboxImg');
-        const lightboxCaption = document.getElementById('lightboxCaption');
-        const lightboxClose = document.getElementById('lightboxClose');
-        const lightboxPrev = document.getElementById('lightboxPrev');
-        const lightboxNext = document.getElementById('lightboxNext');
-        
+
+        // ========== GALLERY LIGHTBOX ==========
         const galleryImages = [
-            { src: 'galerie-1.jpeg', title: 'Collection Élégance', desc: 'Pièces uniques faites main' },
-            { src: 'galerie-2.jpeg', title: 'Styles Traditionnels', desc: 'Inspiration africaine moderne' },
-            { src: 'galerie-3.jpeg', title: 'Créations sur Mesure', desc: 'Personnalisé selon vos envies' },
-            { src: 'galerie-4.jpeg', title: 'Accessoires Exclusifs', desc: 'Bijoux et sacs artisanaux' }
+            { src: 'galerie-1.jpeg', title: 'Collection Élégance', description: 'Défilé Dakar Fashion Week 2023' },
+            { src: 'galerie-2.jpeg', title: 'Styles Traditionnels', description: 'Inspiration africaine moderne' },
+            { src: 'galerie-3.jpeg', title: 'Créations sur Mesure', description: 'Personnalisé selon vos envies' },
+            { src: 'galerie-4.jpeg', title: 'Accessoires Exclusifs', description: 'Bijoux et sacs artisanaux' },
+            { src: 'galerie-5.jpeg', title: 'Tissus Authentiques', description: 'Matériaux de qualité premium' },
+            { src: 'galerie-6.jpeg', title: 'Collections Saisonnières', description: 'Nouveautés Printemps 2024' }
         ];
         
-        let currentImageIndex = 0;
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxTitle = document.getElementById('lightbox-title');
+        const lightboxDescription = document.getElementById('lightbox-description');
+        const currentIndexSpan = document.getElementById('current-index');
+        const totalImagesSpan = document.getElementById('total-images');
+        
+        let currentIndex = 0;
         
         function openLightbox(index) {
-            currentImageIndex = index;
+            currentIndex = index;
             updateLightbox();
-            lightboxModal.classList.add('active');
+            lightbox.classList.add('active');
             document.body.style.overflow = 'hidden';
         }
         
         function updateLightbox() {
-            const image = galleryImages[currentImageIndex];
+            const image = galleryImages[currentIndex];
             lightboxImg.src = image.src;
-            lightboxImg.alt = image.title;
-            lightboxCaption.innerHTML = `<h3>${image.title}</h3><p>${image.desc}</p>`;
+            lightboxTitle.textContent = image.title;
+            lightboxDescription.textContent = image.description;
+            currentIndexSpan.textContent = currentIndex + 1;
+            totalImagesSpan.textContent = galleryImages.length;
         }
         
         function closeLightbox() {
-            lightboxModal.classList.remove('active');
-            document.body.style.overflow = 'auto';
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
         }
         
         function nextImage() {
-            currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+            currentIndex = (currentIndex + 1) % galleryImages.length;
             updateLightbox();
         }
         
         function prevImage() {
-            currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+            currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
             updateLightbox();
         }
         
-        // Lightbox events
-        lightboxClose.addEventListener('click', closeLightbox);
-        lightboxPrev.addEventListener('click', prevImage);
-        lightboxNext.addEventListener('click', nextImage);
+        // Event listeners
+        document.querySelectorAll('.gallery-zoom').forEach((button, index) => {
+            button.addEventListener('click', () => openLightbox(index));
+        });
         
+        document.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
+        document.querySelector('.lightbox-nav.next').addEventListener('click', nextImage);
+        document.querySelector('.lightbox-nav.prev').addEventListener('click', prevImage);
+        
+        // Keyboard navigation
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') closeLightbox();
-            if (e.key === 'ArrowRight') nextImage();
-            if (e.key === 'ArrowLeft') prevImage();
+            if (!lightbox.classList.contains('active')) return;
+            
+            switch(e.key) {
+                case 'Escape': closeLightbox(); break;
+                case 'ArrowRight': nextImage(); break;
+                case 'ArrowLeft': prevImage(); break;
+            }
         });
         
-        lightboxModal.addEventListener('click', (e) => {
-            if (e.target === lightboxModal) closeLightbox();
-        });
-        
-        // Add click events to gallery items
-        document.querySelectorAll('.gallery-item').forEach((item, index) => {
-            item.addEventListener('click', () => openLightbox(index));
-        });
-        
-        // Mobile swipe support
+        // Swipe support for mobile
         let touchStartX = 0;
-        
-        lightboxModal.addEventListener('touchstart', (e) => {
+        lightbox.addEventListener('touchstart', (e) => {
             touchStartX = e.changedTouches[0].screenX;
         });
         
-        lightboxModal.addEventListener('touchend', (e) => {
+        lightbox.addEventListener('touchend', (e) => {
             const touchEndX = e.changedTouches[0].screenX;
-            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
             
-            if (touchStartX - touchEndX > swipeThreshold) {
-                nextImage();
-            } else if (touchEndX - touchStartX > swipeThreshold) {
-                prevImage();
+            if (Math.abs(diff) > 50) {
+                if (diff > 0) {
+                    nextImage();
+                } else {
+                    prevImage();
+                }
             }
         });
+
+        // ========== FORM HANDLING ==========
+        const contactForm = document.getElementById('advancedContactForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const btnText = submitBtn.querySelector('.btn-text');
+        const btnLoader = submitBtn.querySelector('.btn-loader');
+        
+        contactForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            if (!validateForm()) return;
+            
+            // Show loading state
+            btnText.style.opacity = '0';
+            btnLoader.style.display = 'block';
+            submitBtn.disabled = true;
+            
+            try {
+                // Simulate form submission
+                await new Promise(resolve => setTimeout(resolve, 1500));
+                
+                // Success message
+                showNotification('✅ Message envoyé avec succès ! Nous vous répondrons sous 24h.', 'success');
+                
+                // Reset form
+                contactForm.reset();
+                
+            } catch (error) {
+                showNotification('❌ Une erreur est survenue. Veuillez réessayer.', 'error');
+            } finally {
+                // Reset button state
+                btnText.style.opacity = '1';
+                btnLoader.style.display = 'none';
+                submitBtn.disabled = false;
+            }
+        });
+        
+        function validateForm() {
+            let isValid = true;
+            const email = document.getElementById('email');
+            const phone = document.getElementById('phone');
+            
+            // Email validation
+            if (!email.value.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
+                showError(email, 'Veuillez entrer une adresse email valide');
+                isValid = false;
+            } else {
+                clearError(email);
+            }
+            
+            // Phone validation (simplified for Senegal)
+            if (!phone.value.match(/^(\+221)?[0-9]{9}$/)) {
+                showError(phone, 'Veuillez entrer un numéro sénégalais valide');
+                isValid = false;
+            } else {
+                clearError(phone);
+            }
+            
+            return isValid;
+        }
+        
+        function showError(input, message) {
+            const errorElement = input.parentElement.querySelector('.form-error');
+            errorElement.textContent = message;
+            input.style.borderColor = 'var(--error-color)';
+        }
+        
+        function clearError(input) {
+            const errorElement = input.parentElement.querySelector('.form-error');
+            errorElement.textContent = '';
+            input.style.borderColor = '';
+        }
+        
+        function showNotification(message, type) {
+            const notification = document.createElement('div');
+            notification.className = `notification notification-${type}`;
+            notification.textContent = message;
+            
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                padding: 1rem 1.5rem;
+                border-radius: var(--radius-md);
+                color: white;
+                font-weight: 500;
+                z-index: 9999;
+                animation: slideIn 0.3s ease;
+                box-shadow: var(--shadow-lg);
+            `;
+            
+            if (type === 'success') {
+                notification.style.background = 'var(--success-color)';
+            } else {
+                notification.style.background = 'var(--error-color)';
+            }
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+
+        // ========== UTILITY FUNCTIONS ==========
+        function scrollToContact() {
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        function scrollToProducts() {
+            document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        function scrollToAbout() {
+            document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        function openWhatsApp() {
+            const message = "Bonjour Timtimol, je souhaite obtenir des informations sur vos créations.";
+            window.open(`https://wa.me/221775344883?text=${encodeURIComponent(message)}`, '_blank');
+        }
+        
+        // Back to top
+        document.querySelector('.back-to-top').addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // ========== PERFORMANCE OBSERVER ==========
+        if ('PerformanceObserver' in window) {
+            const observer = new PerformanceObserver((list) => {
+                for (const entry of list.getEntries()) {
+                    console.log(`${entry.name}: ${entry.duration}ms`);
+                }
+            });
+            
+            observer.observe({ entryTypes: ['measure'] });
+        }
     </script>
 </body>
 </html>
-
-

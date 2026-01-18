@@ -2,11 +2,12 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Timtimol - Habits & Accessoires Sénégalais</title>
     <link rel="icon" type="image/png" href="timtimol.jpeg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* ========== RESET & BASE ========== */
         * {
             margin: 0;
             padding: 0;
@@ -25,11 +26,24 @@
             --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
         }
         
+        html {
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        
         body {
             background-color: var(--light);
             color: var(--text);
             line-height: 1.7;
             overflow-x: hidden;
+            width: 100%;
+            max-width: 100vw;
+        }
+        
+        img, video {
+            max-width: 100%;
+            height: auto;
+            display: block;
         }
         
         .container {
@@ -39,15 +53,16 @@
             padding: 0 20px;
         }
         
-        /* Header & Navigation */
+        /* ========== HEADER ========== */
         header {
-            background-color: rgba(255, 255, 255, 0.95);
+            background-color: rgba(255, 255, 255, 0.98);
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
             position: sticky;
             top: 0;
             z-index: 1000;
             backdrop-filter: blur(10px);
             transition: var(--transition);
+            width: 100%;
         }
         
         .header-content {
@@ -55,6 +70,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 15px 0;
+            position: relative;
         }
         
         .logo-container {
@@ -62,18 +78,14 @@
             align-items: center;
             gap: 15px;
             text-decoration: none;
+            flex-shrink: 0;
         }
         
         .logo-img {
-            height: 65px;
+            height: 55px;
             width: auto;
             filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.1));
             transition: var(--transition);
-        }
-        
-        .logo-img:hover {
-            transform: scale(1.05);
-            filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.15));
         }
         
         .logo-text {
@@ -82,7 +94,7 @@
         }
         
         .logo-main {
-            font-size: 26px;
+            font-size: 22px;
             font-weight: 800;
             color: var(--primary);
             letter-spacing: 0.5px;
@@ -90,30 +102,29 @@
         }
         
         .logo-sub {
-            font-size: 13px;
+            font-size: 12px;
             color: var(--secondary);
             font-weight: 500;
             margin-top: 3px;
             letter-spacing: 0.3px;
+            white-space: nowrap;
         }
         
         nav ul {
             display: flex;
             list-style: none;
-        }
-        
-        nav li {
-            margin-left: 30px;
+            gap: 25px;
         }
         
         nav a {
             text-decoration: none;
             color: var(--text);
             font-weight: 600;
-            font-size: 16px;
+            font-size: 15px;
             transition: var(--transition);
             position: relative;
             padding: 5px 0;
+            white-space: nowrap;
         }
         
         nav a:hover {
@@ -143,16 +154,13 @@
             font-size: 24px;
             color: var(--primary);
             cursor: pointer;
-            padding: 5px;
+            padding: 8px;
             border-radius: 5px;
             transition: var(--transition);
+            z-index: 1001;
         }
         
-        .mobile-menu-btn:hover {
-            background-color: rgba(156, 74, 26, 0.1);
-        }
-        
-        /* Hero Section */
+        /* ========== HERO ========== */
         .hero {
             background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.7)), url('image-hero.jpg');
             background-size: cover;
@@ -160,42 +168,29 @@
             background-attachment: fixed;
             color: white;
             text-align: center;
-            padding: 140px 20px;
-            margin-bottom: 80px;
+            padding: 120px 20px;
+            margin-bottom: 60px;
             position: relative;
-            overflow: hidden;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
             width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, rgba(156, 74, 26, 0.3), rgba(230, 126, 34, 0.3));
-            z-index: 1;
         }
         
         .hero-content {
-            position: relative;
-            z-index: 2;
             max-width: 800px;
             margin: 0 auto;
         }
         
         .hero h1 {
-            font-size: 52px;
-            margin-bottom: 25px;
+            font-size: 42px;
+            margin-bottom: 20px;
             text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
-            line-height: 1.2;
+            line-height: 1.3;
             font-weight: 800;
         }
         
         .hero p {
-            font-size: 20px;
+            font-size: 18px;
             max-width: 700px;
-            margin: 0 auto 40px;
+            margin: 0 auto 30px;
             opacity: 0.9;
         }
         
@@ -203,7 +198,7 @@
             display: inline-block;
             background: linear-gradient(to right, var(--primary), var(--secondary));
             color: white;
-            padding: 15px 35px;
+            padding: 14px 32px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
@@ -211,26 +206,10 @@
             border: none;
             cursor: pointer;
             box-shadow: 0 5px 15px rgba(156, 74, 26, 0.3);
-            font-size: 16px;
+            font-size: 15px;
             position: relative;
             overflow: hidden;
-            z-index: 1;
-        }
-        
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 0;
-            height: 100%;
-            background: linear-gradient(to right, var(--secondary), var(--primary));
-            transition: width 0.5s ease;
-            z-index: -1;
-        }
-        
-        .btn:hover::before {
-            width: 100%;
+            margin: 5px;
         }
         
         .btn:hover {
@@ -243,33 +222,29 @@
             border: 2px solid var(--accent);
             color: var(--accent);
             box-shadow: 0 5px 15px rgba(241, 196, 15, 0.2);
-            margin-left: 15px;
-        }
-        
-        .btn-secondary::before {
-            background: var(--accent);
         }
         
         .btn-secondary:hover {
+            background: var(--accent);
             color: var(--dark);
         }
         
-        /* Sections */
+        /* ========== SECTIONS ========== */
         .section {
-            padding: 100px 0;
+            padding: 80px 0;
+            width: 100%;
         }
         
         .section-title {
             text-align: center;
-            margin-bottom: 70px;
-            position: relative;
+            margin-bottom: 50px;
         }
         
         .section-title h2 {
-            font-size: 42px;
+            font-size: 36px;
             color: var(--primary);
             display: inline-block;
-            padding-bottom: 20px;
+            padding-bottom: 15px;
             position: relative;
             font-weight: 700;
         }
@@ -277,7 +252,7 @@
         .section-title h2::after {
             content: '';
             position: absolute;
-            width: 100px;
+            width: 80px;
             height: 4px;
             background: linear-gradient(to right, var(--primary), var(--secondary));
             bottom: 0;
@@ -286,57 +261,35 @@
             border-radius: 2px;
         }
         
-        /* About Section */
+        /* ========== ABOUT ========== */
         .about-content {
             display: flex;
-            align-items: center;
-            gap: 60px;
+            flex-direction: column;
+            gap: 40px;
         }
         
         .about-img {
-            flex: 1;
-            border-radius: 15px;
+            border-radius: 12px;
             overflow: hidden;
             box-shadow: var(--shadow);
             position: relative;
         }
         
-        .about-img::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, rgba(156, 74, 26, 0.1), rgba(230, 126, 34, 0.1));
-            z-index: 1;
-        }
-        
         .about-img img {
             width: 100%;
-            height: auto;
-            display: block;
             transition: transform 0.8s ease;
         }
         
-        .about-img:hover img {
-            transform: scale(1.08);
-        }
-        
-        .about-text {
-            flex: 1;
-        }
-        
         .about-text h3 {
-            font-size: 32px;
+            font-size: 28px;
             color: var(--dark);
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             font-weight: 700;
         }
         
         .about-text p {
-            margin-bottom: 25px;
-            font-size: 17px;
+            margin-bottom: 20px;
+            font-size: 16px;
             color: #555;
         }
         
@@ -344,62 +297,36 @@
             font-style: italic;
             color: var(--secondary);
             font-weight: 600;
-            font-size: 18px;
-            margin-top: 20px;
+            font-size: 17px;
+            margin-top: 15px;
         }
         
-        /* Products Section */
+        /* ========== PRODUCTS ========== */
         .products {
             background-color: #F9F4EC;
-            position: relative;
-        }
-        
-        .products::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23F9F4EC"/><path d="M0,0 L100,100" stroke="%239C4A1A" stroke-width="0.5" stroke-opacity="0.1"/><path d="M100,0 L0,100" stroke="%23E67E22" stroke-width="0.5" stroke-opacity="0.1"/></svg>');
-            opacity: 0.5;
         }
         
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 35px;
-            position: relative;
-            z-index: 1;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
         }
         
         .product-card {
             background-color: white;
-            border-radius: 15px;
+            border-radius: 12px;
             overflow: hidden;
             box-shadow: var(--shadow);
             transition: var(--transition);
-            position: relative;
         }
         
         .product-card:hover {
-            transform: translateY(-15px);
+            transform: translateY(-10px);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
         }
         
-        .product-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            z-index: 2;
-        }
-        
         .product-img {
-            height: 270px;
+            height: 220px;
             overflow: hidden;
         }
         
@@ -415,61 +342,45 @@
         }
         
         .product-info {
-            padding: 25px;
+            padding: 20px;
         }
         
         .product-info h3 {
-            font-size: 22px;
-            margin-bottom: 12px;
+            font-size: 20px;
+            margin-bottom: 10px;
             color: var(--dark);
-            font-weight: 700;
         }
         
         .product-info p {
             color: #666;
-            margin-bottom: 20px;
-            font-size: 15.5px;
+            margin-bottom: 15px;
+            font-size: 14.5px;
         }
         
         .product-price {
             font-weight: 800;
             color: var(--primary);
-            font-size: 20px;
+            font-size: 18px;
             display: flex;
             align-items: center;
             justify-content: space-between;
         }
         
-        .product-price span {
-            font-size: 14px;
-            color: #888;
-            font-weight: 500;
-        }
-        
-        /* Gallery Section - MODIFIÉ */
-        .gallery-section {
-            background-color: white;
-        }
-        
+        /* ========== GALLERY ========== */
         .gallery-container {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
         }
         
         .gallery-item {
-            border-radius: 12px;
+            border-radius: 10px;
             overflow: hidden;
             box-shadow: var(--shadow);
             transition: var(--transition);
             position: relative;
-            height: 300px;
+            height: 250px;
             cursor: pointer;
-        }
-        
-        .gallery-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
         }
         
         .gallery-item img {
@@ -479,10 +390,6 @@
             transition: transform 0.8s ease;
         }
         
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-        
         .gallery-caption {
             position: absolute;
             bottom: 0;
@@ -490,7 +397,7 @@
             right: 0;
             background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
             color: white;
-            padding: 20px;
+            padding: 15px;
             transform: translateY(100%);
             transition: transform 0.4s ease;
         }
@@ -499,7 +406,7 @@
             transform: translateY(0);
         }
         
-        /* Lightbox Modal - NOUVEAU */
+        /* ========== LIGHTBOX ========== */
         .lightbox-modal {
             display: none;
             position: fixed;
@@ -507,62 +414,38 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
+            background-color: rgba(0, 0, 0, 0.95);
             z-index: 2000;
             justify-content: center;
             align-items: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
         }
         
         .lightbox-modal.active {
             display: flex;
-            opacity: 1;
         }
         
         .lightbox-content {
             position: relative;
             max-width: 90%;
             max-height: 90%;
-            animation: zoomIn 0.3s ease;
-        }
-        
-        @keyframes zoomIn {
-            from { transform: scale(0.8); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
         }
         
         .lightbox-img {
             max-width: 100%;
             max-height: 80vh;
-            border-radius: 10px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-        }
-        
-        .lightbox-caption {
-            color: white;
-            text-align: center;
-            margin-top: 20px;
-            font-size: 18px;
-            padding: 0 20px;
+            border-radius: 8px;
         }
         
         .lightbox-close {
             position: absolute;
-            top: 20px;
-            right: 30px;
+            top: 15px;
+            right: 20px;
             color: white;
-            font-size: 40px;
+            font-size: 35px;
             cursor: pointer;
             background: none;
             border: none;
-            transition: var(--transition);
             z-index: 2001;
-        }
-        
-        .lightbox-close:hover {
-            color: var(--accent);
-            transform: scale(1.1);
         }
         
         .lightbox-nav {
@@ -572,244 +455,156 @@
             background: rgba(255, 255, 255, 0.1);
             color: white;
             border: none;
-            width: 60px;
-            height: 60px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
-            font-size: 24px;
+            font-size: 20px;
             cursor: pointer;
-            transition: var(--transition);
             display: flex;
             align-items: center;
             justify-content: center;
-            backdrop-filter: blur(5px);
         }
         
-        .lightbox-nav:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-50%) scale(1.1);
-        }
+        .lightbox-prev { left: 15px; }
+        .lightbox-next { right: 15px; }
         
-        .lightbox-prev {
-            left: 30px;
-        }
-        
-        .lightbox-next {
-            right: 30px;
-        }
-        
-        .lightbox-counter {
-            position: absolute;
-            top: 20px;
-            left: 30px;
-            color: white;
-            font-size: 16px;
-            background: rgba(0, 0, 0, 0.5);
-            padding: 8px 15px;
-            border-radius: 20px;
-        }
-        
-        /* Services Section */
+        /* ========== SERVICES ========== */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 35px;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
         }
         
         .service-card {
             background-color: white;
-            padding: 40px 30px;
-            border-radius: 15px;
+            padding: 30px 25px;
+            border-radius: 12px;
             text-align: center;
             box-shadow: var(--shadow);
             transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
         }
         
         .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            transform: translateY(-8px);
         }
         
         .service-icon {
-            font-size: 50px;
+            font-size: 40px;
             color: var(--primary);
-            margin-bottom: 25px;
-            height: 90px;
-            width: 90px;
-            line-height: 90px;
+            margin-bottom: 20px;
+            height: 70px;
+            width: 70px;
+            line-height: 70px;
             background-color: rgba(156, 74, 26, 0.1);
             border-radius: 50%;
-            margin: 0 auto 25px;
-            transition: var(--transition);
-        }
-        
-        .service-card:hover .service-icon {
-            background-color: var(--primary);
-            color: white;
-            transform: scale(1.1);
+            margin: 0 auto 20px;
         }
         
         .service-card h3 {
-            font-size: 24px;
-            margin-bottom: 18px;
+            font-size: 22px;
+            margin-bottom: 15px;
             color: var(--dark);
-            font-weight: 700;
         }
         
-        /* Contact Section */
+        /* ========== CONTACT ========== */
         .contact {
             background: linear-gradient(to bottom right, #FEF9F3, #F9F1E8);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .contact::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 70%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(241, 196, 15, 0.1) 0%, rgba(241, 196, 15, 0) 70%);
-            z-index: 0;
         }
         
         .contact-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .contact-info {
             display: flex;
             flex-direction: column;
+            gap: 40px;
         }
         
         .contact-info h3 {
-            font-size: 32px;
+            font-size: 28px;
             color: var(--dark);
-            margin-bottom: 25px;
-            font-weight: 700;
+            margin-bottom: 20px;
         }
         
         .contact-info p {
-            margin-bottom: 25px;
-            font-size: 17px;
+            margin-bottom: 20px;
+            font-size: 16px;
             color: #555;
         }
         
         .contact-detail {
             display: flex;
             align-items: center;
-            margin-bottom: 25px;
-            padding: 15px;
+            margin-bottom: 15px;
+            padding: 12px;
             background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
-            transition: var(--transition);
-        }
-        
-        .contact-detail:hover {
-            transform: translateX(10px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.03);
         }
         
         .contact-detail i {
-            font-size: 22px;
+            font-size: 20px;
             color: var(--primary);
-            margin-right: 20px;
+            margin-right: 15px;
             width: 40px;
             height: 40px;
             line-height: 40px;
             text-align: center;
             background-color: rgba(156, 74, 26, 0.1);
             border-radius: 50%;
-        }
-        
-        .contact-detail div {
-            font-size: 16px;
-        }
-        
-        .contact-detail strong {
-            display: block;
-            margin-bottom: 5px;
-            color: var(--dark);
+            flex-shrink: 0;
         }
         
         .social-links {
             display: flex;
             margin-top: 20px;
-            gap: 15px;
+            gap: 12px;
         }
         
         .social-link {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 50px;
-            height: 50px;
+            width: 45px;
+            height: 45px;
             background: linear-gradient(to right, var(--primary), var(--secondary));
             color: white;
             border-radius: 50%;
             text-decoration: none;
             transition: var(--transition);
-            font-size: 20px;
-            box-shadow: 0 5px 15px rgba(156, 74, 26, 0.3);
-        }
-        
-        .social-link:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(156, 74, 26, 0.4);
+            font-size: 18px;
         }
         
         .contact-form {
             background-color: white;
-            padding: 40px;
-            border-radius: 15px;
+            padding: 30px;
+            border-radius: 12px;
             box-shadow: var(--shadow);
         }
         
         .contact-form h3 {
-            font-size: 28px;
+            font-size: 24px;
             color: var(--dark);
-            margin-bottom: 30px;
-            font-weight: 700;
+            margin-bottom: 25px;
         }
         
         .form-group {
-            margin-bottom: 25px;
-            position: relative;
+            margin-bottom: 20px;
         }
         
         .form-group label {
             display: block;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             font-weight: 600;
             color: var(--dark);
-            font-size: 15px;
+            font-size: 14px;
         }
         
         .form-group input,
         .form-group textarea,
         .form-group select {
             width: 100%;
-            padding: 15px 20px;
+            padding: 12px 15px;
             border: 2px solid #eee;
-            border-radius: 10px;
-            font-size: 16px;
+            border-radius: 8px;
+            font-size: 15px;
             transition: var(--transition);
             background-color: #fcfcfc;
         }
@@ -820,27 +615,21 @@
             border-color: var(--primary);
             outline: none;
             background-color: white;
-            box-shadow: 0 5px 15px rgba(156, 74, 26, 0.1);
         }
         
         .form-group textarea {
-            height: 160px;
+            height: 140px;
             resize: vertical;
         }
         
-        /* Map Section */
-        .map-section {
-            background-color: white;
-            padding: 60px 0;
-            margin-top: -30px;
-        }
-        
+        /* ========== MAP ========== */
         .map-container {
-            border-radius: 15px;
+            border-radius: 12px;
             overflow: hidden;
             box-shadow: var(--shadow);
-            height: 450px;
+            height: 350px;
             position: relative;
+            margin-top: 30px;
         }
         
         .map-frame {
@@ -851,93 +640,48 @@
         
         .map-overlay {
             position: absolute;
-            bottom: 20px;
-            left: 20px;
+            bottom: 15px;
+            left: 15px;
+            right: 15px;
             background-color: rgba(255, 255, 255, 0.95);
-            padding: 20px 25px;
-            border-radius: 10px;
+            padding: 15px;
+            border-radius: 8px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            max-width: 400px;
             border-left: 4px solid var(--primary);
         }
         
-        .map-overlay h4 {
-            color: var(--primary);
-            margin-bottom: 10px;
-            font-size: 20px;
-            font-weight: 700;
-        }
-        
-        .map-overlay p {
-            font-size: 15px;
-            color: #555;
-            line-height: 1.5;
-        }
-        
-        .map-overlay i {
-            color: var(--secondary);
-            margin-right: 8px;
-        }
-        
-        /* Footer */
+        /* ========== FOOTER ========== */
         footer {
             background: linear-gradient(to right, #7E3C13, #9C4A1A);
             color: white;
-            padding: 80px 0 30px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
+            padding: 60px 0 25px;
             width: 100%;
-            height: 5px;
-            background: linear-gradient(to right, var(--accent), #F39C12);
         }
         
         .footer-content {
             display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 50px;
-            margin-bottom: 50px;
-            position: relative;
-            z-index: 1;
+            flex-direction: column;
+            gap: 40px;
+            margin-bottom: 40px;
         }
         
         .footer-column {
             flex: 1;
-            min-width: 250px;
         }
         
         .footer-logo {
-            height: 70px;
+            height: 60px;
             width: auto;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             filter: brightness(0) invert(1);
         }
         
         .footer-column h3 {
-            font-size: 22px;
-            margin-bottom: 30px;
+            font-size: 20px;
+            margin-bottom: 20px;
             color: var(--accent);
-            position: relative;
-            padding-bottom: 15px;
-            font-weight: 700;
-        }
-        
-        .footer-column h3::after {
-            content: '';
-            position: absolute;
-            width: 50px;
-            height: 3px;
-            background-color: var(--accent);
-            bottom: 0;
-            left: 0;
-            border-radius: 2px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(241, 196, 15, 0.3);
         }
         
         .footer-links {
@@ -945,7 +689,7 @@
         }
         
         .footer-links li {
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
         
         .footer-links a {
@@ -954,43 +698,26 @@
             transition: var(--transition);
             display: flex;
             align-items: center;
-        }
-        
-        .footer-links a i {
-            margin-right: 10px;
             font-size: 14px;
-            width: 20px;
         }
         
         .footer-links a:hover {
             color: var(--accent);
-            transform: translateX(5px);
         }
         
         .copyright {
             text-align: center;
-            padding-top: 30px;
+            padding-top: 25px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 14px;
+            font-size: 13px;
             color: rgba(255, 255, 255, 0.7);
-            position: relative;
-            z-index: 1;
         }
         
-        .copyright a {
-            color: var(--accent);
-            text-decoration: none;
-        }
-        
-        .copyright a:hover {
-            text-decoration: underline;
-        }
-        
-        /* Animation for elements on scroll */
+        /* ========== ANIMATIONS ========== */
         .fade-in {
             opacity: 0;
             transform: translateY(30px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
+            transition: opacity 0.6s ease, transform 0.6s ease;
         }
         
         .fade-in.visible {
@@ -998,76 +725,62 @@
             transform: translateY(0);
         }
         
-        /* Responsive Design */
-        @media (max-width: 1100px) {
-            .about-content {
-                gap: 40px;
-            }
+        /* ============================================ */
+        /* RESPONSIVE DESIGN - MOBILE FIRST ENHANCEMENT */
+        /* ============================================ */
+        
+        /* TABLET (768px and up) */
+        @media (min-width: 768px) {
+            .logo-img { height: 65px; }
+            .logo-main { font-size: 26px; }
+            .logo-sub { font-size: 13px; }
             
-            .contact-content {
-                gap: 40px;
-            }
+            nav ul { gap: 30px; }
+            nav a { font-size: 16px; }
             
-            .gallery-container {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            }
+            .hero { padding: 140px 20px; }
+            .hero h1 { font-size: 48px; }
+            .hero p { font-size: 20px; }
+            
+            .section { padding: 100px 0; }
+            .section-title h2 { font-size: 42px; }
+            
+            .about-content { flex-direction: row; gap: 50px; }
+            .about-text h3 { font-size: 32px; }
+            
+            .contact-content { flex-direction: row; }
+            
+            .footer-content { flex-direction: row; }
         }
         
-        @media (max-width: 992px) {
-            .about-content {
-                flex-direction: column;
-            }
-            
-            .contact-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .hero h1 {
-                font-size: 46px;
-            }
-            
-            .section-title h2 {
-                font-size: 36px;
-            }
-            
-            .map-container {
-                height: 400px;
-            }
-            
-            .gallery-container {
-                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            }
-            
-            .lightbox-nav {
-                width: 50px;
-                height: 50px;
-                font-size: 20px;
-            }
-            
-            .lightbox-prev {
-                left: 15px;
-            }
-            
-            .lightbox-next {
-                right: 15px;
-            }
+        /* DESKTOP (992px and up) */
+        @media (min-width: 992px) {
+            .hero h1 { font-size: 52px; }
+            .gallery-container { grid-template-columns: repeat(3, 1fr); }
+            .services-grid { grid-template-columns: repeat(3, 1fr); }
         }
         
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                text-align: center;
-                padding: 20px 0;
-            }
-            
-            .logo-container {
-                margin-bottom: 15px;
+        /* MOBILE SPECIFIC (below 768px) */
+        @media (max-width: 767px) {
+            /* Header mobile menu */
+            .mobile-menu-btn { 
+                display: block; 
+                position: absolute;
+                right: 0;
+                top: 50%;
+                transform: translateY(-50%);
             }
             
             nav {
-                width: 100%;
-                margin-top: 10px;
                 display: none;
+                width: 100%;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                background: white;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+                padding: 20px;
+                border-radius: 0 0 10px 10px;
             }
             
             nav.active {
@@ -1076,170 +789,173 @@
             
             nav ul {
                 flex-direction: column;
-                align-items: center;
-                background-color: white;
-                padding: 20px;
-                border-radius: 10px;
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            }
-            
-            nav li {
-                margin: 10px 0;
-                width: 100%;
-                text-align: center;
-            }
-            
-            .mobile-menu-btn {
-                display: block;
-                position: absolute;
-                top: 25px;
-                right: 20px;
-            }
-            
-            .hero {
-                padding: 100px 20px;
-            }
-            
-            .hero h1 {
-                font-size: 36px;
-            }
-            
-            .hero p {
-                font-size: 18px;
-            }
-            
-            .section {
-                padding: 80px 0;
-            }
-            
-            .section-title {
-                margin-bottom: 50px;
-            }
-            
-            .btn {
-                padding: 13px 30px;
-                font-size: 15px;
-                margin-bottom: 10px;
-                display: inline-block;
-                width: auto;
-            }
-            
-            .btn-secondary {
-                margin-left: 0;
-            }
-            
-            .contact-form {
-                padding: 30px;
-            }
-            
-            .map-container {
-                height: 350px;
-            }
-            
-            .map-overlay {
-                bottom: 10px;
-                left: 10px;
-                right: 10px;
-                max-width: 100%;
-                padding: 15px;
-            }
-            
-            .gallery-container {
-                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
                 gap: 15px;
             }
             
-            .gallery-item {
-                height: 220px;
+            nav a {
+                display: block;
+                padding: 10px 0;
+                border-bottom: 1px solid #eee;
             }
             
-            .lightbox-content {
-                max-width: 95%;
+            nav a:last-child {
+                border-bottom: none;
             }
             
-            .lightbox-nav {
-                width: 40px;
-                height: 40px;
-                font-size: 18px;
-            }
-            
-            .lightbox-close {
-                top: 10px;
-                right: 15px;
-                font-size: 30px;
-            }
-            
-            .lightbox-counter {
-                top: 10px;
-                left: 15px;
-                font-size: 14px;
-                padding: 5px 10px;
-            }
-        }
-        
-        @media (max-width: 480px) {
+            /* Hero adjustments */
             .hero {
                 padding: 80px 20px;
-                margin-bottom: 60px;
+                margin-bottom: 40px;
+                background-attachment: scroll;
             }
             
             .hero h1 {
-                font-size: 30px;
+                font-size: 32px;
+                margin-bottom: 15px;
             }
             
+            .hero p {
+                font-size: 16px;
+                margin-bottom: 25px;
+            }
+            
+            .btn {
+                display: block;
+                width: 100%;
+                margin: 10px 0;
+            }
+            
+            /* Section adjustments */
             .section {
                 padding: 60px 0;
+            }
+            
+            .section-title {
+                margin-bottom: 40px;
             }
             
             .section-title h2 {
                 font-size: 30px;
             }
             
-            .logo-img {
-                height: 55px;
+            /* Gallery */
+            .gallery-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
             }
             
-            .logo-main {
-                font-size: 22px;
+            .gallery-item {
+                height: 180px;
             }
             
-            .about-text h3 {
-                font-size: 26px;
-            }
-            
-            .products-grid,
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-            
+            /* Contact form */
             .contact-form {
                 padding: 25px;
             }
             
+            /* Map */
             .map-container {
                 height: 300px;
             }
             
+            .map-overlay h4 {
+                font-size: 16px;
+            }
+            
+            .map-overlay p {
+                font-size: 13px;
+            }
+            
+            /* Footer */
+            footer {
+                padding: 50px 0 20px;
+            }
+            
+            .copyright {
+                font-size: 12px;
+            }
+        }
+        
+        /* SMALL MOBILE (below 480px) */
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .logo-text {
+                max-width: 180px;
+            }
+            
+            .logo-main {
+                font-size: 20px;
+            }
+            
+            .logo-sub {
+                font-size: 11px;
+                white-space: normal;
+                line-height: 1.2;
+            }
+            
+            .hero h1 {
+                font-size: 28px;
+            }
+            
+            .hero p {
+                font-size: 15px;
+            }
+            
+            .section-title h2 {
+                font-size: 26px;
+            }
+            
+            .about-text h3 {
+                font-size: 24px;
+            }
+            
+            .products-grid,
             .gallery-container {
                 grid-template-columns: 1fr;
             }
             
             .gallery-item {
-                height: 250px;
+                height: 220px;
             }
             
-            .lightbox-nav {
-                width: 35px;
-                height: 35px;
-                font-size: 16px;
+            .service-card,
+            .product-card {
+                padding: 20px;
             }
             
-            .lightbox-prev {
-                left: 10px;
+            .contact-form {
+                padding: 20px;
             }
             
-            .lightbox-next {
-                right: 10px;
+            .form-group input,
+            .form-group textarea,
+            .form-group select {
+                padding: 10px 12px;
+                font-size: 14px;
+            }
+        }
+        
+        /* LANDSCAPE MODE */
+        @media (max-height: 600px) and (orientation: landscape) {
+            .hero {
+                padding: 60px 20px;
+            }
+            
+            .hero h1 {
+                font-size: 28px;
+                margin-bottom: 10px;
+            }
+            
+            .hero p {
+                font-size: 14px;
+                margin-bottom: 20px;
+            }
+            
+            .section {
+                padding: 40px 0;
             }
         }
     </style>
@@ -1363,18 +1079,17 @@
         </div>
     </section>
 
-    <!-- Gallery Section avec Lightbox -->
-    <section class="section gallery-section" id="galerie">
+    <!-- Gallery Section -->
+    <section class="section" id="galerie">
         <div class="container">
             <div class="section-title fade-in">
                 <h2>Notre Galerie</h2>
-                <p style="color: #666; font-size: 18px; margin-top: 15px;">Cliquez sur une image pour l'agrandir</p>
+                <p style="color: #666; font-size: 16px; margin-top: 10px;">Cliquez sur une image pour l'agrandir</p>
             </div>
             
             <div class="gallery-container">
-                <!-- Espace pour vos images personnelles -->
                 <div class="gallery-item fade-in" data-index="0">
-                    <img src="galerie-1.jpeg" alt="Création Timtimol - Collection Élégance">
+                    <img src="galerie-1.jpeg" alt="Collection Élégance">
                     <div class="gallery-caption">
                         <h4>Collection Élégance</h4>
                         <p>Pièces uniques faites main</p>
@@ -1382,7 +1097,7 @@
                 </div>
                 
                 <div class="gallery-item fade-in" data-index="1">
-                    <img src="galerie-2.jpeg" alt="Création Timtimol - Styles Traditionnels">
+                    <img src="galerie-2.jpeg" alt="Styles Traditionnels">
                     <div class="gallery-caption">
                         <h4>Styles Traditionnels</h4>
                         <p>Inspiration africaine moderne</p>
@@ -1390,7 +1105,7 @@
                 </div>
                 
                 <div class="gallery-item fade-in" data-index="2">
-                    <img src="galerie-3.jpeg" alt="Création Timtimol - Créations sur Mesure">
+                    <img src="galerie-3.jpeg" alt="Créations sur Mesure">
                     <div class="gallery-caption">
                         <h4>Créations sur Mesure</h4>
                         <p>Personnalisé selon vos envies</p>
@@ -1398,26 +1113,10 @@
                 </div>
                 
                 <div class="gallery-item fade-in" data-index="3">
-                    <img src="galerie-4.jpeg" alt="Création Timtimol - Accessoires Exclusifs">
+                    <img src="galerie-4.jpeg" alt="Accessoires Exclusifs">
                     <div class="gallery-caption">
                         <h4>Accessoires Exclusifs</h4>
                         <p>Bijoux et sacs artisanaux</p>
-                    </div>
-                </div>
-                
-                <div class="gallery-item fade-in" data-index="4">
-                    <img src="galerie-5.jpeg" alt="Création Timtimol - Tissus Authentiques">
-                    <div class="gallery-caption">
-                        <h4>Tissus Authentiques</h4>
-                        <p>Matériaux de qualité premium</p>
-                    </div>
-                </div>
-                
-                <div class="gallery-item fade-in" data-index="5">
-                    <img src="galerie-6.jpeg" alt="Création Timtimol - Collections Saisonnières">
-                    <div class="gallery-caption">
-                        <h4>Collections Saisonnières</h4>
-                        <p>Nouveautés régulières</p>
                     </div>
                 </div>
             </div>
@@ -1434,7 +1133,6 @@
             <i class="fas fa-chevron-right"></i>
         </button>
         <div class="lightbox-content">
-            <div class="lightbox-counter" id="lightboxCounter">1 / 6</div>
             <img class="lightbox-img" id="lightboxImg" src="" alt="">
             <div class="lightbox-caption" id="lightboxCaption"></div>
         </div>
@@ -1453,7 +1151,7 @@
                         <i class="fas fa-tshirt"></i>
                     </div>
                     <h3>Vente d'Habits & Accessoires</h3>
-                    <p>Large sélection de vêtements et accessoires sénégalais pour hommes, femmes et enfants. Qualité exceptionnelle garantie.</p>
+                    <p>Large sélection de vêtements et accessoires sénégalais pour hommes, femmes et enfants.</p>
                 </div>
                 
                 <div class="service-card fade-in">
@@ -1461,7 +1159,7 @@
                         <i class="fas fa-ruler-combined"></i>
                     </div>
                     <h3>Créations sur Mesure</h3>
-                    <p>Service de tailleur pour des créations personnalisées selon vos mesures et préférences. Réalisez vos designs uniques.</p>
+                    <p>Service de tailleur pour des créations personnalisées selon vos mesures et préférences.</p>
                 </div>
                 
                 <div class="service-card fade-in">
@@ -1469,7 +1167,7 @@
                         <i class="fas fa-shipping-fast"></i>
                     </div>
                     <h3>Livraison Nationale</h3>
-                    <p>Expédition dans tout le Sénégal avec suivi de commande et service client dédié. Recevez vos articles où que vous soyez.</p>
+                    <p>Expédition dans tout le Sénégal avec suivi de commande et service client dédié.</p>
                 </div>
             </div>
         </div>
@@ -1485,7 +1183,7 @@
             <div class="contact-content">
                 <div class="contact-info fade-in">
                     <h3>Prenez contact avec Timtimol</h3>
-                    <p>Pour toute commande, question ou demande de création sur mesure, n'hésitez pas à nous contacter. Nous vous répondrons dans les plus brefs délais.</p>
+                    <p>Pour toute commande, question ou demande de création sur mesure, n'hésitez pas à nous contacter.</p>
                     
                     <div class="contact-detail">
                         <i class="fas fa-user"></i>
@@ -1516,12 +1214,11 @@
                         <i class="fas fa-clock"></i>
                         <div>
                             <strong>Horaires</strong>
-                            Ouvert de 8h à 22h - 7j/7<br>
-                            Commandes et consultations en ligne
+                            Ouvert de 8h à 22h - 7j/7
                         </div>
                     </div>
                     
-                    <h3 style="margin-top: 30px;">Suivez-nous</h3>
+                    <h3 style="margin-top: 25px;">Suivez-nous</h3>
                     <div class="social-links">
                         <a href="https://www.instagram.com/timtimol_awa_/" target="_blank" class="social-link">
                             <i class="fab fa-instagram"></i>
@@ -1532,11 +1229,9 @@
                     </div>
                 </div>
                 
-                <!-- FORMULAIRE CORRECT AVEC VOTRE URL FORMSFREE -->
                 <div class="contact-form fade-in">
                     <h3>Envoyez un message</h3>
                     <form id="contactForm" action="https://formspree.io/f/mpqqqvpz" method="POST">
-                        <!-- Champs cachés pour Formspree -->
                         <input type="hidden" name="_subject" value="Nouveau message depuis Timtimol">
                         <input type="hidden" name="_language" value="fr">
                         
@@ -1575,10 +1270,6 @@
                         <button type="submit" class="btn" style="width: 100%;">
                             <i class="fas fa-paper-plane"></i> Envoyer le message
                         </button>
-                        
-                        <p style="margin-top: 15px; font-size: 14px; color: #666; text-align: center;">
-                            <i class="fas fa-info-circle"></i> Vous recevrez une confirmation par email
-                        </p>
                     </form>
                 </div>
             </div>
@@ -1586,10 +1277,9 @@
     </section>
 
     <!-- Map Section -->
-    <section class="map-section">
+    <section class="section" style="padding-top: 0;">
         <div class="container">
             <div class="map-container fade-in">
-                <!-- Carte Google Maps avec localisation exacte de Timtimol -->
                 <iframe 
                     class="map-frame" 
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3859.527091238535!2d-17.393322724226354!3d14.704475585780146!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xec1730d3a5f8a5b%3A0x527445c6a2a3a3b3!2sGolf%20Sud%2C%20Dakar%2C%20S%C3%A9n%C3%A9gal!5e0!3m2!1sfr!2sfr!4v1680000000000!5m2!1sfr!2sfr" 
@@ -1598,10 +1288,8 @@
                     referrerpolicy="no-referrer-when-downgrade">
                 </iframe>
                 <div class="map-overlay">
-                    <h4><i class="fas fa-map-marker-alt"></i> Localisation de la Boutique Timtimol</h4>
-                    <p><i class="fas fa-store"></i> Golf Sud Station 10<br>
-                    <i class="fas fa-hospital"></i> Derrière Hôpital Dalal Diam<br>
-                    <i class="fas fa-city"></i> Guédiawaye - Dakar, Sénégal</p>
+                    <h4><i class="fas fa-map-marker-alt"></i> Boutique Timtimol</h4>
+                    <p>Golf Sud Station 10, Derrière Hôpital Dalal Diam, Guédiawaye - Dakar</p>
                 </div>
             </div>
         </div>
@@ -1613,8 +1301,8 @@
             <div class="footer-content">
                 <div class="footer-column">
                     <img src="timtimol.png" alt="Logo Timtimol" class="footer-logo">
-                    <p>Boutique d'habits et accessoires sénégalais alliant tradition et modernité. Créations sur mesure disponibles 24h/24.</p>
-                    <div class="social-links" style="margin-top: 20px;">
+                    <p>Boutique d'habits et accessoires sénégalais alliant tradition et modernité. Créations sur mesure disponibles.</p>
+                    <div class="social-links" style="margin-top: 15px;">
                         <a href="https://www.instagram.com/timtimol_awa_/" target="_blank" class="social-link">
                             <i class="fab fa-instagram"></i>
                         </a>
@@ -1642,14 +1330,16 @@
                         <li><a href="tel:+221775344883"><i class="fas fa-phone"></i> +221 77 534 48 83</a></li>
                         <li><a href="#"><i class="fas fa-user"></i> Awa Ndiaye</a></li>
                         <li><a href="#"><i class="fas fa-map-marker-alt"></i> Golf Sud, Guédiawaye - Dakar</a></li>
-                        <li><a href="mailto:contact@timtimol.com"><i class="fas fa-envelope"></i> contact@timtimol.com</a></li>
                     </ul>
                 </div>
             </div>
             
             <div class="copyright">
-                <p>&copy; <span id="currentYear"></span> Timtimol - Tous droits réservés. Créé avec ❤️ par Awa Ndiaye</p>
-                <p style="margin-top: 10px;">Suivez-nous sur Instagram: <a href="https://www.instagram.com/timtimol_awa_/" target="_blank"><strong>@timtimol_awa_</strong></a> | TikTok: <a href="https://www.tiktok.com/@timtimol_awa" target="_blank"><strong>@timtimol_awa</strong></a></p>
+                <p>&copy; <span id="currentYear"></span> Timtimol - Tous droits réservés.</p>
+                <p style="margin-top: 10px; font-size: 12px;">
+                    Instagram: <a href="https://www.instagram.com/timtimol_awa_/" target="_blank">@timtimol_awa_</a> | 
+                    TikTok: <a href="https://www.tiktok.com/@timtimol_awa" target="_blank">@timtimol_awa</a>
+                </p>
             </div>
         </div>
     </footer>
@@ -1666,7 +1356,7 @@
                 : '<i class="fas fa-bars"></i>';
         });
         
-        // Smooth scrolling for navigation links
+        // Smooth scrolling
         document.querySelectorAll('nav a, .footer-links a').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 if(this.getAttribute('href').startsWith('#')) {
@@ -1682,7 +1372,7 @@
                         behavior: 'smooth'
                     });
                     
-                    // Close mobile menu if open
+                    // Close mobile menu
                     if (mainNav.classList.contains('active')) {
                         mainNav.classList.remove('active');
                         mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
@@ -1691,34 +1381,18 @@
             });
         });
         
-        // FORMULAIRE CORRECTEMENT CONFIGURÉ
+        // Form submission
         const contactForm = document.getElementById('contactForm');
-        
         contactForm.addEventListener('submit', function(e) {
-            // Ne pas empêcher l'envoi - laisser Formspree faire son travail
-            // Récupérer les valeurs pour le message
+            // Laisser Formspree gérer l'envoi
             const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
-            
-            // Afficher un message de confirmation
             setTimeout(function() {
-                alert(`✅ Merci ${name} ! Votre message a bien été envoyé.\n\nJe vous contacterai au ${phone} très prochainement.\n\nVous recevrez également une confirmation par email.`);
-            }, 500);
-            
-            // Réinitialiser le formulaire après un délai
-            setTimeout(function() {
-                contactForm.reset();
-            }, 2000);
+                alert(`✅ Merci ${name} ! Votre message a été envoyé.`);
+            }, 100);
         });
         
         // Update copyright year
-        document.addEventListener('DOMContentLoaded', function() {
-            const year = new Date().getFullYear();
-            document.getElementById('currentYear').textContent = year;
-            
-            // Vérifier que Formspree est bien configuré
-            console.log('Formulaire configuré avec Formspree: https://formspree.io/f/mpqqqvpz');
-        });
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
         
         // Animation on scroll
         const fadeElements = document.querySelectorAll('.fade-in');
@@ -1726,162 +1400,98 @@
         const fadeInOnScroll = () => {
             fadeElements.forEach(element => {
                 const elementTop = element.getBoundingClientRect().top;
-                const elementVisible = 150;
-                
-                if (elementTop < window.innerHeight - elementVisible) {
+                if (elementTop < window.innerHeight - 100) {
                     element.classList.add('visible');
                 }
             });
         };
         
-        // Initial check
+        window.addEventListener('scroll', fadeInOnScroll);
         fadeInOnScroll();
         
-        // Check on scroll
-        window.addEventListener('scroll', fadeInOnScroll);
-        
-        // Header shadow on scroll
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 50) {
-                header.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.1)';
-                header.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
-            } else {
-                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.05)';
-                header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
-            }
-        });
-        
-        // LIGHTBOX GALLERY - NOUVEAU
+        // Lightbox
         const lightboxModal = document.getElementById('lightboxModal');
         const lightboxImg = document.getElementById('lightboxImg');
         const lightboxCaption = document.getElementById('lightboxCaption');
         const lightboxClose = document.getElementById('lightboxClose');
         const lightboxPrev = document.getElementById('lightboxPrev');
         const lightboxNext = document.getElementById('lightboxNext');
-        const lightboxCounter = document.getElementById('lightboxCounter');
         
-        // Données de la galerie
         const galleryImages = [
-            {
-                src: 'galerie-1.jpeg',
-                title: 'Collection Élégance',
-                description: 'Pièces uniques faites main'
-            },
-            {
-                src: 'galerie-2.jpeg',
-                title: 'Styles Traditionnels',
-                description: 'Inspiration africaine moderne'
-            },
-            {
-                src: 'galerie-3.jpeg',
-                title: 'Créations sur Mesure',
-                description: 'Personnalisé selon vos envies'
-            },
-            {
-                src: 'galerie-4.jpeg',
-                title: 'Accessoires Exclusifs',
-                description: 'Bijoux et sacs artisanaux'
-            },
-            {
-                src: 'galerie-5.jpeg',
-                title: 'Tissus Authentiques',
-                description: 'Matériaux de qualité premium'
-            },
-            {
-                src: 'galerie-6.jpeg',
-                title: 'Collections Saisonnières',
-                description: 'Nouveautés régulières'
-            }
+            { src: 'galerie-1.jpeg', title: 'Collection Élégance', desc: 'Pièces uniques faites main' },
+            { src: 'galerie-2.jpeg', title: 'Styles Traditionnels', desc: 'Inspiration africaine moderne' },
+            { src: 'galerie-3.jpeg', title: 'Créations sur Mesure', desc: 'Personnalisé selon vos envies' },
+            { src: 'galerie-4.jpeg', title: 'Accessoires Exclusifs', desc: 'Bijoux et sacs artisanaux' }
         ];
         
         let currentImageIndex = 0;
         
-        // Ouvrir la lightbox
         function openLightbox(index) {
             currentImageIndex = index;
             updateLightbox();
             lightboxModal.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Empêcher le défilement
+            document.body.style.overflow = 'hidden';
         }
         
-        // Mettre à jour la lightbox
         function updateLightbox() {
             const image = galleryImages[currentImageIndex];
             lightboxImg.src = image.src;
             lightboxImg.alt = image.title;
-            lightboxCaption.innerHTML = `<h3>${image.title}</h3><p>${image.description}</p>`;
-            lightboxCounter.textContent = `${currentImageIndex + 1} / ${galleryImages.length}`;
+            lightboxCaption.innerHTML = `<h3>${image.title}</h3><p>${image.desc}</p>`;
         }
         
-        // Fermer la lightbox
         function closeLightbox() {
             lightboxModal.classList.remove('active');
-            document.body.style.overflow = 'auto'; // Rétablir le défilement
+            document.body.style.overflow = 'auto';
         }
         
-        // Image suivante
         function nextImage() {
             currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
             updateLightbox();
         }
         
-        // Image précédente
         function prevImage() {
             currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
             updateLightbox();
         }
         
-        // Événements de la lightbox
+        // Lightbox events
         lightboxClose.addEventListener('click', closeLightbox);
         lightboxPrev.addEventListener('click', prevImage);
         lightboxNext.addEventListener('click', nextImage);
         
-        // Fermer avec la touche Échap
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') closeLightbox();
             if (e.key === 'ArrowRight') nextImage();
             if (e.key === 'ArrowLeft') prevImage();
         });
         
-        // Fermer en cliquant en dehors de l'image
         lightboxModal.addEventListener('click', (e) => {
-            if (e.target === lightboxModal) {
-                closeLightbox();
-            }
+            if (e.target === lightboxModal) closeLightbox();
         });
         
-        // Ajouter les événements de clic aux images de la galerie
+        // Add click events to gallery items
         document.querySelectorAll('.gallery-item').forEach((item, index) => {
-            item.addEventListener('click', () => {
-                openLightbox(index);
-            });
+            item.addEventListener('click', () => openLightbox(index));
         });
         
-        // Navigation tactile pour mobile
+        // Mobile swipe support
         let touchStartX = 0;
-        let touchEndX = 0;
         
         lightboxModal.addEventListener('touchstart', (e) => {
             touchStartX = e.changedTouches[0].screenX;
         });
         
         lightboxModal.addEventListener('touchend', (e) => {
-            touchEndX = e.changedTouches[0].screenX;
-            handleSwipe();
-        });
-        
-        function handleSwipe() {
+            const touchEndX = e.changedTouches[0].screenX;
             const swipeThreshold = 50;
             
             if (touchStartX - touchEndX > swipeThreshold) {
-                // Swipe gauche = image suivante
                 nextImage();
             } else if (touchEndX - touchStartX > swipeThreshold) {
-                // Swipe droite = image précédente
                 prevImage();
             }
-        }
+        });
     </script>
 </body>
 </html>

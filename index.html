@@ -2500,6 +2500,43 @@
             color: rgba(255,255,255,0.6);
             font-size: 0.9rem;
         }
+        /* Styles spécifiques pour le panier mobile */
+@media (max-width: 768px) {
+    .cart-modal {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 15px !important;
+    }
+    
+    .cart-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .cart-item-actions {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .cart-item-total {
+        align-self: flex-end;
+        margin-top: 10px;
+    }
+    
+    /* Bouton de fermeture plus grand sur mobile */
+    .cart-close {
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
+    }
+    
+    /* Bouton checkout plus grand */
+    .btn-checkout {
+        padding: 18px;
+        font-size: 1.2rem;
+    }
+}
     </style>
 
     <!-- JavaScript -->
@@ -2611,7 +2648,10 @@
             cartModal.classList.add('active');
             document.body.style.overflow = 'hidden';
         }
-
+           if (cartModal.classList.contains('active')) {
+        closeCart();
+        return;
+        }
         function updateQuantity(index, change) {
             const item = cart[index];
             item.quantity += change;
@@ -2970,6 +3010,7 @@
     </script>
 </body>
 </html>
+
 
 
 

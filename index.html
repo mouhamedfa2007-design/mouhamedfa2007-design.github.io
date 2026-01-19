@@ -2727,7 +2727,11 @@
             { src: 'galerie-3.jpeg', title: 'Créations sur Mesure', description: 'Personnalisé selon vos envies' },
             { src: 'galerie-4.jpeg', title: 'Accessoires Exclusifs', description: 'Bijoux et sacs artisanaux' },
             { src: 'galerie-5.jpeg', title: 'Tissus Authentiques', description: 'Matériaux de qualité premium' },
-            { src: 'galerie-6.jpeg', title: 'Collections Saisonnières', description: 'Nouveautés Printemps 2024' }
+            { src: 'galerie-6.jpeg', title: 'Collections Saisonnières', description: 'Nouveautés Printemps 2024' },
+            { src: 'galerie-7.jpeg', title: 'Collection Élégance', description: 'Défilé Dakar Fashion Week 2023' },
+            { src: 'galerie-8.jpeg', title: 'Collection Élégance', description: 'Défilé Dakar Fashion Week 2023' },
+            { src: 'galerie-9.jpeg', title: 'Collection Élégance', description: 'Défilé Dakar Fashion Week 2023' },
+            { src: 'galerie-10.jpeg', title: 'Collection Élégance', description: 'Défilé Dakar Fashion Week 2023' }
         ];
         
         let currentImageIndex = 0;
@@ -2745,6 +2749,7 @@
             document.getElementById('lightbox-title').textContent = image.title;
             document.getElementById('lightbox-description').textContent = image.description;
             document.getElementById('current-index').textContent = currentImageIndex + 1;
+            document.getElementById('total-images').textContent = galleryImages.length;
         }
         
         function closeLightbox() {
@@ -2965,6 +2970,7 @@
     </script>
 </body>
 </html>
+
 
 
 
